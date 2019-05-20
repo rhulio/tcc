@@ -1,0 +1,208 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Você dever criar uma conta no ShareLatex. Depois, %%
+%% vá nas opções no canto esquerdo superior da tela  %%
+%% e clique em "Copiar Projeto". Dê um novo nome pa- %%
+%% ra o projeto.                                     %%
+%%                                                   %%
+%% Os principais desenvolvedores deste template são: %%
+%%                                                   %%
+%%            Ednardo Moreira Rodrigues              %%
+%%     (Doutorando em Engenharia Elétrica - UFC)     %%
+%%                      &                            %%
+%%            Alan Batista de Oliveira               %%
+%%     (Graduando em Engenharia Elétrica - UFC)      %%
+%%                                                   %%
+%% Revisão:                                          %%
+%%                                                   %%
+%% - Eliene Maria Vieira de Moura;                   %%
+%% - Francisco Edvander Pires Santos;                %%
+%% - Izabel Lima dos Santos;                         %%
+%% - Juliana Soares Lima;                            %%
+%% - Kalline Yasmin Soares Feitosa.                  %%
+%%                                                   %%
+%% Grande parte do trabalho foi adaptado do template %%
+%% da UECE elaborado por:                            %%
+%% Thiago Nascimento  (UECE)                         %%
+%% Project available on:                             %%
+%% https://github.com/thiagodnf/uecetex2             %%
+%%                                                   %%
+%% "Dúvidas, esclarecimentos ou sugestões podem ser  %%
+%% enviadas para o e-mail da Comissão de Serviços da %%
+%% Biblioteca Universitária: csbu@ufc.br."           %%
+%%                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                  %%                                                   %%
+%% Alterado em 2017 para ser base dos trabalhos de   %%
+%% conclusão de curso da Enegenahria Elétrica        %%
+%% da UFPI.                                          %%
+%% Prof. José Maria Pires de Menezes Jr.             %%
+%%                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[        
+    a4paper,          % Tamanho da folha A4
+    12pt,             % Tamanho da fonte 12pt
+    chapter=TITLE,    % Todos os capitulos devem ter caixa alta
+    section=Title,    % Todas as secoes devem ter caixa alta somente na primeira letra
+    subsection=Title, % Todas as subsecoes devem ter caixa alta somente na primeira letra
+    oneside,          % Usada para impressao em apenas uma face do papel
+    english,          % Hifenizacoes em ingles
+    spanish,          % Hifenizacoes em espanhol
+    brazil,           % Ultimo idioma eh o idioma padrao do documento
+    fleqn             % Coloca as equações alinhadas a esquerda
+]{abntex2}
+
+\input{lib/preambulo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%          Configuracoes do ufctex                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Opcoes disponiveis
+
+\trabalhoacademico{tccgraduacao}
+%\trabalhoacademico{tccespecializacao}
+%\trabalhoacademico{dissertacao}
+%\trabalhoacademico{tese}
+
+% Define se o trabalho eh uma qualificacao
+% Coloque 'nao' para versao final do trabalho
+
+\ehqualificacao{nao}
+
+% Remove as bordas vermelhas e verdes do PDF gerado
+% Coloque 'sim' pare remover
+
+\removerbordasdohyperlink{sim} 
+
+% Adiciona a cor Azul a todos os hyperlinks
+
+\cordohyperlink{nao}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%          Informação sobre a IES                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ies{Universidade Federal do Piauí}
+\iessigla{UFPI}
+\centro{Centro de Tecnologia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%        Informação para TCC de Graduacao %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graduacaoem{Engenharia Elétrica}
+\habilitacao{bacharel} % Pode colocar tambem 'licenciada'
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%     Informação para TCC de Especializacao       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\especializacaoem{Descargas Atmosféricas}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         Informação para Dissertacao             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\programamestrado{Programa de Pós-Graduação em Xxxxxxx}
+\nomedomestrado{Mestrado Acadêmico em Xxxxxxx}
+\mestreem{Engenharia Xxxxxx}
+\areadeconcentracaomestrado{Engenharia Xxxxxx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%               Informação para Tese              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\programadoutorado{Programa de Pós-Graduação em Xxxxxx}
+\nomedodoutorado{Doutorado em Xxxxxxx}
+\doutorem{Engenharia Xxxxxx}
+\areadeconcentracaodoutorado{Engenharia Xxxxxxx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Informacoes relacionadas ao trabalho     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\autor{Rhúlio Victor Luz Carvalho Sousa}
+\titulo{Desenvolvimento de um Sistema de Supervisão e Aquisição de Dados para múltiplos projetos com visualização WEB}
+\data{2019}
+\local{Teresina}
+
+% Exemplo: \dataaprovacao{01 de Janeiro de 2012}
+\dataaprovacao{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%     Informação sobre o Orientador       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\orientador{Prof. Dr. José Maria Pires de Menezes Júnior}
+\orientadories{Universidade Federal do Piauí (UFPI)}
+\orientadorcentro{Centro de Tecnologia (CT)}
+\orientadorfeminino{nao} % Coloque 'sim' se for do sexo feminino
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%      Informação sobre o Co-orientador   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Deixe o nome do coorientador em branco para remover do documento
+
+\coorientador{Prof. Dr. Otacílio da Mota Almeida}
+\coorientadories{Universidade Federal do Piauí (UFPI)}
+\coorientadorcentro{Centro de Tecnologia (CT)}
+\coorientadorfeminino{nao} % Coloque 'sim' se for do sexo feminino
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%      Informação sobre a banca           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Atenção! Deixe o nome do membro da banca para remover da folha de aprovacao
+
+\membrodabancadois{Prof. Dr. José Medeiros De Araújo Júnior}
+\membrodabancadoiscentro{Centro de Tecnologia (CT)}
+\membrodabancadoisies{Universidade Federal do Piauí (UFPI)}
+
+\membrodabancatres{Prof. PhD. Antônio Airton Carneiro de Freitas}
+\membrodabancatrescentro{Centro de Tecnologia (CT)}
+\membrodabancatresies{Universidade Federal do Piauí (UFPI)}
+
+\begin{document}	
+
+	% Elementos pré-textuais
+	\imprimircapa
+	\imprimirfolhaderosto{}
+	%\imprimirfichacatalografica{elementos-pre-textuais/ficha-catalografica}
+	%\imprimirerrata{elementos-pre-textuais/errata}
+	\imprimirfolhadeaprovacao
+	\imprimirdedicatoria{elementos-pre-textuais/dedicatoria}
+	\imprimiragradecimentos{elementos-pre-textuais/agradecimentos}
+	\imprimirepigrafe{elementos-pre-textuais/epigrafe}
+	\imprimirresumo{elementos-pre-textuais/resumo}
+	\imprimirabstract{elementos-pre-textuais/abstract}
+	\imprimirlistadeilustracoes
+	\imprimirlistadetabelas
+	%\imprimirlistadequadros
+	%\imprimirlistadealgoritmos
+	%\imprimirlistadecodigosfonte
+	\imprimirlistadeabreviaturasesiglas
+	%\imprimirlistadesimbolos{elementos-pre-textuais/lista-de-simbolos}   
+	\imprimirsumario
+	
+	%Elementos textuais
+	\textual
+	\input{elementos-textuais/introducao}
+	\input{elementos-textuais/fundamentacao-teorica}
+	\input{elementos-textuais/metodologia}
+	\input{elementos-textuais/resultados}
+	\input{elementos-textuais/conclusao}
+	
+	%Elementos pós-textuais	
+	\bibliography{elementos-pos-textuais/referencias}
+%	\imprimirglossario	
+	\imprimirapendices
+		% Adicione aqui os apendices do seu trabalho
+		\input{elementos-pos-textuais/apendices/historico-de-mudancas}
+	\imprimiranexos
+		% Adicione aqui os anexos do seu trabalho
+		\input{elementos-pos-textuais/anexos/exemplo-de-anexo}		
+	\imprimirindice
+
+\end{document}
