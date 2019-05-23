@@ -1,5 +1,5 @@
 \chapter{Dispositivos e Protocolos}
-\label{cap:dispositivos-protocolos}
+\label{chap:dispositivos-protocolos}
 
 Nesta seção, serão introduzidas tecnologias existentes para supervisão de processos e aquisição de dados e os protocolos mais utilizados para isto. Vantagens e desvantagens serão comentadas para justificar a escolha do método deste trabalho.
 
@@ -117,7 +117,7 @@ Nesta seção, serão introduzidas tecnologias existentes para supervisão de pr
         	\centering
         	\Caption{\label{tab:tabela-modbus-ascii} Representação do pacote no modo ASCII.}	
         	\IBGEtab{}{
-        		\begin{tabular}{crrrr}
+        		\begin{tabular}{crrrrr}
         			\toprule
         			Início & Endereço & Função & Dados & LRC & Final \\
         			\midrule \midrule
@@ -208,7 +208,7 @@ Nesta seção, serão introduzidas tecnologias existentes para supervisão de pr
     
         \gls{OPC}, inicialmente chamado \textit{Object Linking and Embedding for Process Control}, desenvolvido pela \textit{OPC Foundation} em 1996 e gerenciado por esta desde então, é o padrão de interoperabilidade para o transporte seguro e confiável de informações no espaço industrial, ele é independente de plataforma e garante o fluxo contínuo de informações entre dispositivos de vários fornecedores. É uma série de especificações desenvolvidas por fornecedores do setor, usuários e desenvolvedores. Essas especificações definem a interface entre Clientes e Servidores, bem como Servidores e Servidores, incluindo acesso a dados em tempo real, monitoramento de alarmes e eventos, acesso a dados históricos e outros aplicativos. \cite{OPC}
         
-        Seu propósito inicial era agregar vários outros tipos de protocolos distintos de \glspl{CLP}, proprietários ou não, como: Modbus (seção \ref{sec:modbus}), Profibus, etc, de forma simplificada, para que \glspl{IHM} ou SCADAs (seção \ref{sec:scada}) pudessem solicitar informações através de comunicação genérica, permitindo então, que os usuários implementassem sistemas usando os melhores produtos, interagindo perfeitamente via \gls{OPC}.
+        Seu propósito inicial era agregar vários outros tipos de protocolos distintos de \glspl{CLP}, proprietários ou não, como: Modbus (seção \ref{sec:modbus}), Profibus, etc, de forma simplificada, para que \glspl{IHM} ou SCADAs (Capítulo \ref{chap:scada}) pudessem solicitar informações através de comunicação genérica, permitindo então, que os usuários implementassem sistemas usando os melhores produtos, interagindo perfeitamente via \gls{OPC}.
 
     \subsubsection{OPC Classic}
     \label{sec:opc-classic}
@@ -306,7 +306,7 @@ Nesta seção, serão introduzidas tecnologias existentes para supervisão de pr
         
         \begin{table}[h!]	
         	\centering
-        	\Caption{\label{tab:tabela-modbus-ethernet} Comparativo entre os métodos de chamada.}	
+        	\Caption{\label{tab:tabela-metodos-chamada} Comparativo entre os métodos de chamada.}	
         	\IBGEtab{}{
         		\begin{tabular}{crrrr}
         			\toprule
