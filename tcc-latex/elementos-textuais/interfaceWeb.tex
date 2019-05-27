@@ -1,7 +1,7 @@
 \chapter{Interface Web}
 \label{chap:interface-web}
 
-A interface de gerenciamento foi desenvolvida conforme todos os conceitos descritos no Capítulo \ref{chap:sistema-desenvolvido}, o tema utilizado para estilo da página foi desenvolvido pela empresa Colorlib com código-fonte aberto e modificado à critérios do projeto \cite{Concept}. O nome do sistema, rscada,  foi constituído da inicial R do nome do autor e o tipo do sistema em questão. Todo o código dos módulos foi programado utilizando a linguagem de programação PHP, com excessão da integração entre o banco de dados e o serviço VerneMQ responsável pelo protocolo MQTT que teve por base programação LUA e os exemplos de utilização da plataforma disponíveis no Capítulo \ref{chap:resultados} que foram desenvolvidos utilizando C++ com pequenas modificações. Todas as etapas e telas do projeto são explicadas abaixo.
+A interface de gerenciamento foi desenvolvida conforme todos os conceitos descritos no Capítulo \ref{chap:sistema-desenvolvido}, o tema utilizado para estilo da página foi desenvolvido pela empresa Colorlib com código-fonte aberto e modificado à critérios do projeto \cite{Concept}. O nome do sistema, rscada,  foi constituído da inicial R do nome do autor e o tipo do sistema em questão. Todo o código dos módulos foi programado utilizando a linguagem de programação PHP, com exceção da integração entre o banco de dados e o serviço VerneMQ, responsável pelo protocolo MQTT, teve por base programação LUA e os exemplos de utilização da plataforma disponíveis no Capítulo \ref{chap:resultados} que foram desenvolvidos utilizando C++ com pequenas modificações. Todas as etapas e telas do projeto são explicadas abaixo.
 
 \section{Acesso ao Sistema}
 \label{sec:acesso-sistema}
@@ -29,7 +29,7 @@ Caso seja um novo utilizador, é fornecido um botão na tela de acesso para cria
 		}	
     	\end{figure}
 
-Devidamente autenticado no sistema, o usuário é redirecionado à tela inicial onde o foco são os projetos cadastrados pertencentes à ele. Informações sobre a quantidade de Clientes associados aos projetos e botões de ações, são disponíveis na página, dentre elas: Novo Projeto, Gerenciamento dos Projetos existentes e Exclusão dos mesmos. Um menu é disponibilizado na lateral esquerda da tela, com os principais atalhos para funções do sistema, como: (i) Minha Conta, onde o usuário poderá alterar detalhes como: E-mail ou Senha, (ii) Meus Projetos, quando necessário retornar à tela inicial dos projetos, (iii) Meus Clientes, para o cadastro de clientes descritos anteriormente como Operadores, que farão uso dos projetos quando desenvolvidos, (iv) Meus Domínios, que o usuário poderá cadastrar o endereço de site onde o qual os clientes terão acesso ao projeto desenvolvido, (v) Alarmes, para visualizar eventos e alertas de informações que tenham sido inseridas no sistema e que não correspondem aos valores ideiais de funcionamento, entre outros. As Figura \ref{fig:figura-rscada-2} e \ref{fig:figura-rscada-5} trazem capturas da tela descrita.
+Devidamente autenticado no sistema, o usuário é redirecionado à tela inicial onde o foco são os projetos cadastrados pertencentes à ele. Informações sobre a quantidade de Clientes associados aos projetos e botões de ações, são disponíveis na página, dentre elas: Novo Projeto, Gerenciamento dos Projetos existentes e Exclusão dos mesmos. Um menu é disponibilizado na lateral esquerda da tela, com os principais atalhos para funções do sistema, como: (i) Minha Conta, onde o usuário poderá alterar detalhes como: E-mail ou Senha, (ii) Meus Projetos, quando necessário retornar à tela inicial dos projetos, (iii) Meus Clientes, para o cadastro de clientes descritos anteriormente como Operadores, que farão uso dos projetos quando desenvolvidos, (iv) Meus Domínios, que o usuário poderá cadastrar o endereço de site o qual os clientes terão acesso ao projeto desenvolvido, (v) Alarmes, para visualizar eventos e alertas de informações que tenham sido inseridas no sistema e que não correspondem aos valores ideiais de funcionamento, entre outros. As Figura \ref{fig:figura-rscada-2} e \ref{fig:figura-rscada-5} trazem capturas da tela descrita.
 
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-rscada-3} Tela inicial do sistema após autenticação.}
@@ -63,7 +63,7 @@ A plataforma também permite o ajuste automático ao tipo de tela que o utilizad
 		}	
     	\end{figure}
     	
-Ao clicar no botão Novo Projeto, o usuário é redirecionado à uma página solicitando o nome que se deseja para ele, conforme a Figura \ref{fig:figura-rscada-4}. Ao submeter o formulário é apresentada uma mensagem de sucesso caso seja possível a criação dele e em seguida encaminhado à página inicial do projeto, representado na Figura \ref{fig:figura-rscada-novo}. 
+Ao clicar no botão Novo Projeto, o usuário é redirecionado à uma página solicitando o nome que se deseja para ele, conforme a Figura \ref{fig:figura-rscada-4}. Ao submeter o formulário é apresentada uma mensagem de sucesso, caso seja possível a criação dele e, em seguida, encaminhado à página inicial do projeto, representado na Figura \ref{fig:figura-rscada-novo}. 
 
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-rscada-4} Página de cadastro de novos Projetos.}
@@ -97,7 +97,7 @@ Ao clicar no botão Novo Projeto, o usuário é redirecionado à uma página sol
 		}	
     	\end{figure}
     	
-Quando submetido o formulário é apresentada uma tela de sucesso caso a variável seja inserida no banco de dados e então o usuário poderá gerenciar todas as variáveis já cadastradas no projeto com informação adicional sobre a quantidade de informações já inseridas no banco de dados para aquela variável específica, conforme representado na Figura \ref{fig:figura-rscada-variaveis} e coluna Registros. O cadastro de novas variáveis também pode ser feito diretamente no módulo de aquisição de dados, onde submetendo informações citando uma variável não cadastrada, o próprio módulo identificará o tipo dela e fará a submissão ao banco de dados. Este procedimento é feito para evitar a perda de informação caso o desenvolvedor considere novas variáveis no dispositivo do processo e não tenha atualizado no sistema \gls{SCADA} ainda.
+Quando submetido o formulário, é apresentada uma tela de sucesso caso a variável seja inserida no banco de dados e então, o usuário poderá gerenciar todas as variáveis já cadastradas no projeto com informação adicional sobre a quantidade de informações já inseridas no banco de dados para aquela variável específica, conforme representado na Figura \ref{fig:figura-rscada-variaveis} e coluna Registros. O cadastro de novas variáveis também pode ser feito diretamente no módulo de aquisição de dados, onde submetendo informações citando uma variável não cadastrada, o próprio módulo identificará o tipo dela e fará a submissão ao banco de dados. Este procedimento é feito para evitar a perda de informação, caso o desenvolvedor considere novas variáveis no dispositivo do processo e não tenha atualizado no sistema \gls{SCADA} ainda.
 
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-rscada-variaveis} Gerenciamento das variáveis cadastradas no projeto.}
@@ -119,7 +119,7 @@ Com as variáveis já cadastradas no sistema, é oferecida a opção de criaçã
     \item Gráfico de Área: disponibiliza na tela um gráfico de área com uma série temporal das informações enviadas à variável escolhida.
     \item Gráfico de Barras: disponibiliza na tela um gráfico de barras com uma série temporal das informações enviadas à variável escolhida.
     \item Tabela de Informações: disponibiliza na tela uma tabela contendo uma quantidade dos últimos valores das informações enviadas à variável escolhida.
-    \item Tabela de Eventos:  disponibiliza na tela uma tabela contendo os registros de alarmes e alertas sobre envio de informações que não estejam em acordo com o definido para a variável escolhida, representando também os alertas visuais que serão oferecidos ao operador quando ocorridas.
+    \item Tabela de Eventos:  disponibiliza na tela uma tabela contendo os registros de alarmes e alertas sobre envio de informações que não estejam em acordo com o definido para a variável escolhida, representando também os alertas visuais que serão oferecidos ao operador quando ocorridas. A Figura \ref{fig:figura-rscada-alarmes} traz exemplos dos alarmes que são emitidos em tela para o Operador.
 \end{alineascomponto}
 
 Em seguida, são solicitados: Título, Descrição e Tamanho do Objeto, que servirão para apresentação da caixa gráfica quando inserida na interface do projeto. O Tamanho é uma seleção entre: Pequeno, Médio, Grande e Gigante, sendo respectivamente relacionado à largura ocupada da tela pelo Objeto, 25\%, 50\%, 75\% e 100\%.
@@ -129,6 +129,16 @@ Em seguida, são solicitados: Título, Descrição e Tamanho do Objeto, que serv
 		%\centering
 		\UFCfig{}{
 			\fbox{\includegraphics[width=15cm]{figuras/rscada-7.png}}
+		}{
+			\Fonte{O autor}
+		}	
+    	\end{figure}
+    	
+    	\begin{figure}[!h]
+		\Caption{\label{fig:figura-rscada-alarmes} Alertas do sistema quando há uma não-conformidade da informação recebida.}
+		%\centering
+		\UFCfig{}{
+			\fbox{\includegraphics[width=15cm]{figuras/rscada-alarmes.png}}
 		}{
 			\Fonte{O autor}
 		}	

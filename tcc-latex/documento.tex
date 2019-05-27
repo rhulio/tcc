@@ -54,6 +54,22 @@
 
 \input{lib/preambulo}
 
+\lstset{
+  language=C++,
+  basicstyle=\ttfamily\small, 
+  keywordstyle=\color{blue}, 
+  commentstyle=\color{red}, 
+  extendedchars=true, 
+  showspaces=false, 
+  showstringspaces=false, 
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true, 
+  breakautoindent=true, 
+  captionpos=b,
+  xleftmargin=0pt,
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%          Configuracoes do ufctex                %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -160,7 +176,7 @@
 \membrodabancadoiscentro{Centro de Tecnologia (CT)}
 \membrodabancadoisies{Universidade Federal do Piauí (UFPI)}
 
-\membrodabancatres{Prof. PhD. Antônio Airton Carneiro de Freitas}
+\membrodabancatres{Prof. Dr. Antônio Airton Carneiro de Freitas}
 \membrodabancatrescentro{Centro de Tecnologia (CT)}
 \membrodabancatresies{Universidade Federal do Piauí (UFPI)}
 
@@ -199,12 +215,14 @@
 	%Elementos pós-textuais	
 	\bibliography{elementos-pos-textuais/referencias}
 %	\imprimirglossario	
-	\imprimirapendices
+%	\imprimirapendices
 		% Adicione aqui os apendices do seu trabalho
-		\input{elementos-pos-textuais/apendices/historico-de-mudancas}
+%		\input{elementos-pos-textuais/apendices/historico-de-mudancas}
 	\imprimiranexos
 		% Adicione aqui os anexos do seu trabalho
-		\input{elementos-pos-textuais/anexos/exemplo-de-anexo}		
+		\input{elementos-pos-textuais/anexos/anexoA}		
+		\input{elementos-pos-textuais/anexos/anexoB}
+		\input{elementos-pos-textuais/anexos/anexoC}
 	\imprimirindice
 
 \end{document}

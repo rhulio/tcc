@@ -1,0 +1,90 @@
+\anexo{Exemplo: Temperatura e Umidade}
+\label{an:anexo-temperatura-umidade}
+
+\begin{lstlisting}[
+    basicstyle=\tiny,
+]
+#include <ESP8266WiFi.h>
+#include <Adafruit_Sensor.h> 
+#include <DHT.h>
+
+DHT dht(5, DHT11);
+
+#include <MQTT.h>
+
+WiFiClient net;
+MQTTClient mqtt;
+
+float dadosTemperatura = 0;
+float dadosUmidade = 0;
+
+const char* ssid = "# Cipriano";
+const char* senha = "senha da minha casa";
+
+const char* token = "53027A";
+
+String float2str(float x, byte precision = 2) {
+  char tmp[50];
+  dtostrf(x, 0, precision, tmp);
+  return String(tmp);
+}
+
+bool conectaWiFi() {
+  if (WiFi.status() != WL_CONNECTED) {
+    delay(250);
+    return 0;
+  } else
+    return 1;
+}
+
+void wdt() {
+  ESP.wdtFeed();
+  yield();
+}
+
+void setup() {
+  Serial.begin(9600);
+
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, senha);
+  
+  conectaWiFi();
+  dht.begin();
+
+  mqtt.begin("mqtt.rscada.ga", net);
+  mqtt.connect(token, token, token);
+}
+
+unsigned long tempoTotal = 0;
+  
+void loop() {
+  if(conectaWiFi()){
+
+    float umidade = dht.readHumidity();
+    float temperatura = dht.readTemperature();
+
+    if (isnan(umidade) || isnan(temperatura)) {
+      wdt();
+      return;
+    }
+  
+    unsigned long tempoInicial = millis();
+
+    if(mqtt.connected()){
+      mqtt.publish(String(token)+"/umidade", float2str(umidade), false, 1);
+      tempoTotal = millis() - tempoInicial;
+
+      mqtt.publish(String(token)+"/temperatura", float2str(temperatura), false, 1);
+
+      if(tempoTotal > 0)
+        mqtt.publish(String(token)+"/latencia", String(tempoTotal), false, 1);
+    } else {
+      mqtt.disconnect();
+      mqtt.connect(token, token, token);
+    }
+   
+    while((millis() - tempoInicial) < 200) wdt();
+  }
+  wdt();
+}
+\end{lstlisting}
