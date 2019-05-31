@@ -1,80 +1,21 @@
-\anexo{Exemplo: Demanda de Roteadores}
-\label{an:anexo-roteadores}
+\anexo{Exemplo: Incubadora}
+\label{an:anexo-incubadora}
 
 \begin{lstlisting}[
     basicstyle=\tiny,
 ]
-<?php
-    $roteadores = array(
-		"237" => "Recepcao",
-		"238" => "Auditorio",
-		"239" => "Apartamento 204",
-		"240" => "Restaurante",
-		"241" => "Apartamento 107",
-		"242" => "Apartamento 216",
-		"243" => "Apartamento 210",
-		"244" => "Apartamento 226",
-		"245" => "Apartamento 103",
-		"246" => "Apartamento 213",
-		"247" => "Apartamento 219",
-	);
+clc;
+clear all;
+close all;
 
-	$doisT = 0;
-	$cincoT = 0;
-	$downloadT = 0;
-	$uploadT = 0;
+load resposta_degrau_malha_aberta_umidade_com_temp_controlada.mat
+load resposta_ao_degrau_ma_100_corrigido.mat
 
-	for($i = 237; $i < 248; $i++){
-		$ip = "10.255.0.{$i}";
+for i = 1:80,
+     pwmUmidade = webread(['https://sistema.rscada.ga/api/4709B5/envio?pwm=' num2str(pwm(i)) '&umidade=' num2str(saida_umid(i)) '&temperatura=' num2str(saida_temp(i)) '&temperaturacupula=' num2str(saida_temp_cupula(i)) '&temperaturaexterna=' num2str(saida_tempe_ext(i)) '&temperaturareferencia=' num2str(ref_temp(i))]);
+end
 
-		$ch = curl_init();
-
-		curl_setopt($ch, CURLOPT_COOKIEJAR, "cookie-{$ip}.txt");
-		curl_setopt($ch, CURLOPT_URL,"http://{$ip}/Main_WStatus2g_Content.asp");
-		curl_setopt($ch, CURLOPT_USERPWD, "rhulio:minhasenha");
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_POST, 0);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-
-		$r = curl_exec($ch);
-		preg_match_all(
-		    "/[0-9A-F]{2}\:[0-9A-F]{2}\:[0-9A-F]{2}\:[0-9A-F]{2}\:[0-9A-F]{2}\:[0-9A-F]{2} /",
-		$r, $mac);
-		$dois = count($mac[0]);
-		$doisT += $dois;
-
-		curl_setopt($ch, CURLOPT_URL,"http://{$ip}/Main_WStatus_Content.asp");
-		$r = curl_exec($ch);
-		preg_match_all(
-		    "/[0-9A-F]{2}\:[0-9A-F]{2}\:[0-9A-F]{2}\:[0-9A-F]{2}\:[0-9A-F]{2}\:[0-9A-F]{2} /",
-		$r, $mac);
-		$cinco = count($mac[0]);
-		$cincoT += $cinco;
-
-		curl_setopt($ch, CURLOPT_URL,"http://{$ip}/Main_TrafficMonitor_last24.asp");
-		$r = curl_exec($ch);
-
-		preg_match("/rx_total\: ([0-9]+)/", $r, $download);
-		$download = number_format($download[1]/1073741824, 2, ".", "");
-		$downloadT += $download;
-
-		preg_match("/rx_max\: ([0-9]+)/", $r, $downloadS);
-		$downloadS = number_format($downloadS[1]/125000, 2, ".", "");
-
-		preg_match("/tx_total\: ([0-9]+)/", $r, $upload);
-		$upload = number_format($upload[1]/1073741824, 2, ".", "");
-		$uploadT += $upload;
-		
-		preg_match("/tx_max\: ([0-9]+)/", $r, $uploadS);
-		$uploadS = number_format($uploadS[1]/125000, 2, ".", "");
-
-		curl_close($ch);
-
-		$totalAtivos = $dois+$cinco;
-		$enviaAtivos = file_get_contents(
-		    "http://sistema.rscada.ga/api/C487D2/envio?a{$i}={$totalAtivos}&d{$i}={$download}&u{$i}={$upload}&dl{$i}={$downloadS}&ul{$i}={$uploadS}"
-		);
-
-		echo "<strong>{$totalAtivos} ativos - {$dois} / {$cinco} - {$roteadores[$i]}</strong><br />Ultimas 24 horas:<br />{$uploadS} / {$downloadS} Mbps<br />{$upload} / {$download} GB<br /><br />";
+for i = 81:777,
+    pwmUmidade = webread(['https://sistema.rscada.ga/api/4709B5/envio?pwm=' num2str(pwm(i)) '&umidade=' num2str(saida_umid(i))]);
+end
 \end{lstlisting}

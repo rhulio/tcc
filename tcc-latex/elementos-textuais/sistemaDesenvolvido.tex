@@ -1,5 +1,5 @@
-\chapter{Sistema Desenvolvido}
-\label{chap:sistema-desenvolvido}
+\chapter{Sistema Proposto}
+\label{chap:sistema-proposto}
 
 Como exposto no Capítulo \ref{chap:dispositivos-protocolos}, são necessários vários protocolos ou adaptações para que a comunicação de um processo consiga atingir interoperabilidade entre o servidor e todos os dispositivos. Os sistemas \gls{SCADA} demonstrados no Capítulo \ref{chap:scada} utilizados para receber estas informações do servidor \gls{OPC} local ou diretamente destes dispositivos e organizá-las em um banco de dados, é a forma predominante na indústria e a forma mais confiável hoje. Todos os \textit{softwares} disponíveis para utilização que foram citados têm em comum seu modo de funcionamento, onde é instalado em uma máquina próxima e fisicamente ligada ao processo, que por sua vez mantém todos os serviços necessários para o funcionamento integrado dos módulos que o compõe. Alguns dispõem de integração com o protocolo \gls{MQTT} e interfaceamento \gls{WEB}, mas não são nativamente desenvolvidos para o funcionamento remoto.
 
@@ -190,9 +190,6 @@ O módulo mais importante para o funcionamento deste sistema é a aquisição de
     Toda a aplicação baseia-se na utilização de computação em nuvem, em que servidores, armazenamento, redes e \textit{software} rodam sob uma camada lógica virtual em uma infraestrutura de servidores integrada por fornecedores que permite o rateio dos recursos entre utilizadores, possibilitando a redução do custo operacional do serviço, aumentando sua eficiência e confiabilidade já que uma falha física não afetará toda a estrutura.
     
     Conforme citado, o sistema foi desenvolvido para uma forma de distribuição \gls{SaaS}, o que significa que o usuário final não se preocupará com quaisquer aspectos de infraestrutura, ficando à cargo da equipe de operação do sistema \gls{SCADA} proposto a manutenção geral destes serviços. Para que não haja um desbalanceamento no uso e possível sobrecarga decorrente de abusos de um só usuário que afete os demais, o sistema foi desenvolvido para que cada conta haja um limite de envio de informações por hora e também a quantidade de dias que ocorra retenção desta informação em banco de dados, que podem variar de usuário pra usuário à critério de suas necessidades de projeto e da equipe do sistema \gls{SCADA}. Desta forma, é possível prever a utilização de recursos utilizados nos módulos e garantir a disponibilidade do sistema.
-
-
-\section{Plataforma Estudantil}
-\label{sec:plataforma-estudantil}
-
-    Este trabalho tem o fim exclusivo de potencializar projetos desenvolvidos em meio acadêmico que, por muitas vezes haja um distanciamento entre o assunto pretendido e a necessidade de uma plataforma online que faça coleta e análise de informações de várias grandes áreas da Engenharia Elétrica, ou também, casos em que haja a necessidade de estudos de plantas industriais ou microcontroladores com sistemas \gls{SCADA} facilitando, assim, acesso ao seu uso e trazendo ferramentas completas comparado ao uso de \textit{softwares} comerciais e de forma gratuita para estes estudantes. Para isto, foi pensado a inclusão de ferramentas de colaboração no painel para que possam solicitar o desenvolvimento de novas funções que sejam necessárias ao estudo.
+    
+\section{Conclusão}
+\label{sec:conclusao-sistema}
