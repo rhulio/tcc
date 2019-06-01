@@ -73,7 +73,7 @@ Para o período de captura utilizado neste exemplo, Figura \ref{fig:figura-tempe
 		\Caption{\label{fig:figura-temperatura-umidade} Gráfico de área com os últimos 30 minutos de umidade registrada.}
 		%\centering
 		\UFCfig{}{
-			\fbox{\includegraphics[width=8cm]{figuras/temperatura-umidade.png}}
+			\fbox{\includegraphics[width=10cm]{figuras/temperatura-umidade.png}}
 		}{
 			\Fonte{O autor}
 		}	
@@ -85,7 +85,7 @@ O acompanhamento da latência da conexão entre o microcontrolador e o servidor 
 		\Caption{\label{fig:figura-temperatura-latencia} Gráfico de linhas com os últimos 30 minutos de latência registrada.}
 		%\centering
 		\UFCfig{}{
-			\fbox{\includegraphics[width=8cm]{figuras/temperatura-latencia.png}}
+			\fbox{\includegraphics[width=10cm]{figuras/temperatura-latencia.png}}
 		}{
 			\Fonte{O autor}
 		}	
@@ -138,7 +138,7 @@ Para o período de captura utilizado neste exemplo, na Figura \ref{fig:figura-wi
 		\Caption{\label{fig:figura-wifi-sinal} Gráfico de linhas com os últimos 30 minutos de qualidade de sinal registrada.}
 		%\centering
 		\UFCfig{}{
-			\fbox{\includegraphics[width=8cm]{figuras/wifi-sinal.png}}
+			\fbox{\includegraphics[width=10cm]{figuras/wifi-sinal.png}}
 		}{
 			\Fonte{O autor}
 		}	
@@ -148,7 +148,7 @@ Para o período de captura utilizado neste exemplo, na Figura \ref{fig:figura-wi
 		\Caption{\label{fig:figura-wifi-latencia} Gráfico de linhas com os últimos 10 minutos de latência registrada.}
 		%\centering
 		\UFCfig{}{
-			\fbox{\includegraphics[width=8cm]{figuras/wifi-latencia.png}}
+			\fbox{\includegraphics[width=10cm]{figuras/wifi-latencia.png}}
 		}{
 			\Fonte{O autor}
 		}	
@@ -156,10 +156,44 @@ Para o período de captura utilizado neste exemplo, na Figura \ref{fig:figura-wi
     	
 
 
-\section{Incubadora}
-\label{sec:incubadora}
-Com o objetivo de exemplificar a aquisição de dados através do protocolo \gls{HTTP} e uma possível integração entre o sistema \gls{SCADA} proposto e outros sistemas já existentes no local em que seja utilizado, foi desenvolvido um código utilizando a linguagem de programação PHP, disponível no anexo \ref{an:anexo-roteadores}, para o monitoramento de 11 roteadores dispostos no Entre Rios Hotel na cidade de Picos - Piauí. A ideia deste exemplo é ter um histórico de demanda de hóspedes conectados e a máxima largura de banda utilizada em cada um dos roteadores num período de 24 horas, que se situam em locais distintos. Com isso, é possível a reorganização destes aparelhos para um melhor atendimento dos clientes, considerando que haja uma maior demanda na maior parte do tempo em um zona específica do hotel.
+\section{Incubadora Neonatal}
+\label{sec:incubadora-neonatal}
+Com o objetivo de exemplificar uma possível integração entre o sistema \gls{SCADA} proposto e outros sistemas já existentes no local em que seja utilizado, foi desenvolvido um código utilizando o \textit{software} MATLAB, da empresa MathWorks, disponível no anexo \ref{an:anexo-incubadora-neonatal}, para servir como intermediário entre sensores disponibilizados dentro de uma incubadora neonatal e a interface de gerenciamento, similarmente ao que aconteceria caso o cliente optasse pelo uso de um servidor \gls{OPC} local. Utilizou-se a incubadora neonatal presente no Laboratório de Controle, Automação e Telecomunicações da Universidade Federal do Piauí, representada na Figura \ref{fig:figura-incubadora-ela}.
 
+        \begin{figure}[!h]
+		\Caption{\label{fig:figura-incubadora-ela} Incubadora utilizada no exemplo.}
+		%\centering
+		\UFCfig{}{
+			\fbox{\includegraphics[width=10cm]{figuras/incubadora-ela.jpg}}
+		}{
+			\Fonte{O autor}
+		}	
+    	\end{figure}
+    	
+Os sensores são dispostos dentro da cúpula, conforme a Figura \ref{fig:figura-incubadora-pontos} seguindo a norma NBR IEC 60601-2-19/2014. Neste exemplo, foram capturadas informações de temperatura através de sensores localizados: (i) no ponto M, que representam a média da temperatura interna na cúpula, (ii) próximo a resistência interna, responsável pelo aquecimento da incubadora através da passagem de corrente elétrica  e, (iii) posicionado para medição da temperatura externa.
+    	
+        \begin{figure}[!h]
+		\Caption{\label{fig:figura-incubadora-pontos} Pontos em que os sensores são posicionados.}
+		%\centering
+		\UFCfig{}{
+			\fbox{\includegraphics[width=10cm]{figuras/incubadora-pontos.jpg}}
+		}{
+			\Fonte{(NBR IEC 60601-2-19, 2014)}
+		}	
+    	\end{figure}
+    	
+Inicialmente foram configuradas as variáveis à serem utilizadas pelo exemplo, sendo elas:
+\begin{alineascomponto}
+    \item Referência Temperatura: tipo numérica que representa o sinal base de entrada para a resistência;
+    \item Temperatura: tipo numérica representando a temperatura na resistência interna da incubadora;
+    \item Temperatura Cúpula: tipo numérica para a temperatura interna da cúpula, representada na Figura \ref{fig:figura-incubadora-pontos} pelo ponto M;
+    \item Temperatura Externa: tipo numérica para captura da temperatura ambiente;
+    \item Umidade: tipo numérica para captura da umidade dentro da incubadora;
+    \item PWM: tipo numérica que representa o sinal de entrada para a resistência no momento da captura de umidade.
+\end{alineascomponto}
+
+A Figura \ref{fig:figura-incubadora-variaveis} traz uma captura da tela de gerenciamento de variáveis, com o exemplo já em funcionamento em duas etapas distintas: (i) Captura de Temperatura, com 80 pontos em suas respectivas variáveis e (ii) Captura de Umidade, com 524 pontos, coletadas a cada 220 segundos.
+    	
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-incubadora-variaveis} Variáveis utilizadas no projeto.}
 		%\centering
@@ -170,41 +204,57 @@ Com o objetivo de exemplificar a aquisição de dados através do protocolo \gls
 		}	
     	\end{figure}
     	
+As Figuras \ref{fig:figura-incubadora-temperatura-referencia} e \ref{fig:figura-incubadora-temperatura} são respectivamente a referência de entrada e a temperatura real obtida. Como o objetivo deste exemplo era apenas a aquisição das informações provenientes do processo, não foram aplicadas quaisquer malhas de controle. Na resistência de aquecimento, a temperatura adquirida em regime permanente foi por volta de 55,4 ºC, conforme Figura \ref{fig:figura-incubadora-temperatura}.
+
         \begin{figure}[!h]
-		\Caption{\label{fig:figura-incubadora-temperatura} Variáveis utilizadas no projeto.}
+		\Caption{\label{fig:figura-incubadora-temperatura-referencia} Temperatura de referência para a resistência.}
 		%\centering
 		\UFCfig{}{
-			\fbox{\includegraphics[width=15cm]{figuras/incubadora-temperatura.png}}
+			\fbox{\includegraphics[width=10cm]{figuras/incubadora-temperatura-referencia.png}}
+		}{
+			\Fonte{O autor}
+		}	
+    	\end{figure}
+
+Internamente, na cúpula, nos dados obtidos representados pela Figura \ref{fig:figura-incubadora-temperatura-cupula}, a temperatura da resistência se mantém por volta de 42,8 ºC em regime permanente.
+
+        \begin{figure}[!h]
+		\Caption{\label{fig:figura-incubadora-temperatura} Curva da temperatura adquirida na resistência.}
+		%\centering
+		\UFCfig{}{
+			\fbox{\includegraphics[width=10cm]{figuras/incubadora-temperatura.png}}
 		}{
 			\Fonte{O autor}
 		}	
     	\end{figure}
     	
         \begin{figure}[!h]
-		\Caption{\label{fig:figura-incubadora-temperatura-cupula} Variáveis utilizadas no projeto.}
+		\Caption{\label{fig:figura-incubadora-temperatura-cupula} Curva da temperatura internamente na cúpula.}
 		%\centering
 		\UFCfig{}{
-			\fbox{\includegraphics[width=15cm]{figuras/incubadora-temperatura-cupula.png}}
+			\fbox{\includegraphics[width=10cm]{figuras/incubadora-temperatura-cupula.png}}
+		}{
+			\Fonte{O autor}
+		}	
+    	\end{figure}
+    	
+A temperatura externa à incubadora (ambiente) no momento da aquisição se mantém oscilando por volta de 30º C, conforme Figura \ref{fig:figura-incubadora-temperatura-externa}. A Figura \ref{fig:figura-incubadora-umidade} representa a curva de umidade para a segunda etapa de captura da incubadora.
+
+    	\begin{figure}[!h]
+		\Caption{\label{fig:figura-incubadora-temperatura-externa} Curva da temperatura externa no momento da aquisição.}
+		%\centering
+		\UFCfig{}{
+			\fbox{\includegraphics[width=10cm]{figuras/incubadora-temperatura-externa.png}}
 		}{
 			\Fonte{O autor}
 		}	
     	\end{figure}
     	
     	\begin{figure}[!h]
-		\Caption{\label{fig:figura-incubadora-temperatura-externa} Variáveis utilizadas no projeto.}
+		\Caption{\label{fig:figura-incubadora-umidade} Curva de umidade adquirida.}
 		%\centering
 		\UFCfig{}{
-			\fbox{\includegraphics[width=15cm]{figuras/incubadora-temperatura-externa.png}}
-		}{
-			\Fonte{O autor}
-		}	
-    	\end{figure}
-    	
-    	\begin{figure}[!h]
-		\Caption{\label{fig:figura-incubadora-umidade} Variáveis utilizadas no projeto.}
-		%\centering
-		\UFCfig{}{
-			\fbox{\includegraphics[width=15cm]{figuras/incubadora-umidade.png}}
+			\fbox{\includegraphics[width=10cm]{figuras/incubadora-umidade.png}}
 		}{
 			\Fonte{O autor}
 		}	
@@ -213,7 +263,7 @@ Com o objetivo de exemplificar a aquisição de dados através do protocolo \gls
 
 \section{Demanda de Roteadores}
 \label{sec:demanda-roteadores}
-Com o objetivo de exemplificar a aquisição de dados através do protocolo \gls{HTTP} e uma possível integração entre o sistema \gls{SCADA} proposto e outros sistemas já existentes no local em que seja utilizado, foi desenvolvido um código utilizando a linguagem de programação PHP, disponível no anexo \ref{an:anexo-roteadores}, para o monitoramento de 11 roteadores dispostos no Entre Rios Hotel na cidade de Picos - Piauí. A ideia deste exemplo é ter um histórico de demanda de hóspedes conectados e a máxima largura de banda utilizada em cada um dos roteadores num período de 24 horas, que se situam em locais distintos. Com isso, é possível a reorganização destes aparelhos para um melhor atendimento dos clientes, considerando que haja uma maior demanda na maior parte do tempo em um zona específica do hotel.
+Para exemplificar a aquisição de dados através do protocolo \gls{HTTP} e uma possível integração entre o sistema \gls{SCADA} proposto e outros sistemas já existentes no local em que seja utilizado, assim como o exemplo anterior, foi desenvolvido um código utilizando a linguagem de programação PHP, disponível no anexo \ref{an:anexo-roteadores}, para o monitoramento de 11 roteadores dispostos no Entre Rios Hotel na cidade de Picos - Piauí. A ideia deste exemplo é ter um histórico de demanda de hóspedes conectados e a máxima largura de banda utilizada em cada um dos roteadores num período de 24 horas, que se situam em locais distintos. Com isso, é possível a reorganização destes aparelhos para um melhor atendimento dos clientes, considerando que haja uma maior demanda na maior parte do tempo em um zona específica do hotel.
 
 Inicialmente foram configuradas as variáveis à serem utilizadas pelo programa, sendo elas:
 
