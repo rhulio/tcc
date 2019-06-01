@@ -29,6 +29,8 @@ Caso seja um novo utilizador, é fornecido um botão na tela de acesso para cria
 		}	
     	\end{figure}
 
+\section{Tela inicial da interface}
+\label{sec:tela-inicial}
 Devidamente autenticado no sistema, o usuário é redirecionado à tela inicial onde o foco são os projetos cadastrados pertencentes à ele. Informações sobre a quantidade de Clientes associados aos projetos e botões de ações, são disponíveis na página, dentre elas: Novo Projeto, Gerenciamento dos Projetos existentes e Exclusão dos mesmos. Um menu é disponibilizado na lateral esquerda da tela, com os principais atalhos para funções do sistema, como: (i) Minha Conta, onde o usuário poderá alterar detalhes como: E-mail ou Senha, (ii) Meus Projetos, quando necessário retornar à tela inicial dos projetos, (iii) Meus Clientes, para o cadastro de clientes descritos anteriormente como Operadores, que farão uso dos projetos quando desenvolvidos, (iv) Meus Domínios, que o usuário poderá cadastrar o endereço de site o qual os clientes terão acesso ao projeto desenvolvido, (v) Alarmes, para visualizar eventos e alertas de informações que tenham sido inseridas no sistema e que não correspondem aos valores ideiais de funcionamento, entre outros. As Figura \ref{fig:figura-rscada-2} e \ref{fig:figura-rscada-5} trazem capturas da tela descrita.
 
         \begin{figure}[!h]
@@ -63,6 +65,8 @@ A plataforma também permite o ajuste automático ao tipo de tela que o utilizad
 		}	
     	\end{figure}
     	
+\section{Criação de novos projetos}
+\label{sec:criacao-projetos}
 Ao clicar no botão Novo Projeto, o usuário é redirecionado à uma página solicitando o nome que se deseja para ele, conforme a Figura \ref{fig:figura-rscada-4}. Ao submeter o formulário é apresentada uma mensagem de sucesso, caso seja possível a criação dele e, em seguida, encaminhado à página inicial do projeto, representado na Figura \ref{fig:figura-rscada-novo}. 
 
         \begin{figure}[!h]
@@ -217,5 +221,18 @@ Desde que seja corretamente associado o cliente ao projeto e inserida esta infor
 		}	
     	\end{figure}
     	
-\section{Conclusão}
-\label{sec:conclusao-rscada}
+\section{Síntese}
+\label{sec:sintese-rscada}
+
+A abordagem utilizada neste Capítulo, pode ser sintetizada por um Diagrama de Caso de Uso, descrevendo a sequência e as unidades de interação com o sistema, disponível na Figura \ref{fig:figura-diagrama-uso}. Tendo sido detalhadas todas as funcionalidades propostas desenvolvidas, o capítulo seguinte traz uma aproximação do uso real deste sistema, com base em exemplos de diversas situações de utilização do mesmo. Os dois protocolos de aquisição de dados, \gls{MQTT} e \gls{HTTP}, são utilizados para demonstrar a facilidade de uso e a capacidade de integração do sistema.
+
+        \begin{figure}[!h]
+		\Caption{\label{fig:figura-diagrama-uso} Diagrama de caso de uso sintetizando os níveis de permissão do sistema.}
+		%\centering
+		\UFCfig{}{
+			\fbox{\includegraphics[width=15cm]{figuras/figura-diagrama-uso.pdf}}
+		}{
+			\Fonte{O autor}
+		}	
+    	\end{figure}
+    	

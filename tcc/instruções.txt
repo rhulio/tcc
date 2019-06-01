@@ -10,21 +10,6 @@ https://ieeexplore.ieee.org/  (somente dentro da rede da UFPI)
 https://www.sciencedirect.com/search  (Elsevier)
 Esse último é primordial.
 
-# Ai inserir: Objetivos, Objetivo Geral. Objetivos Específicos e Organização do Trabalho.
-# Cápitulo 4, substituir o nome por Sistema Proposto Ou Metodologi e Sistemas Proposto
-# Quando comçe o capitulo 2, você usa: Nesta seção, serão introduzidas tecnologias e ... Usa geralmente o presente: Nesta seção, são introduzidas tecnologias e
-
-Ao final de cada capitulo, fazer um breve resumo e ligar com o proximo, exemplo:
-2.9 Conclusão
-Este capítulo teve como principal finalidade mostrar os conceitos básicos de predição
-linear e não-linear. Foi feito uma revisão do modelo linear ARMA, seguido pela análise da
-necessidade de se usar modelos não-lineares para predição de séries temporais. Também são
-feitas determinadas considerações sobre a reconstrução do espaço de estados.
-Alguns conceitos abordados neste capítulo são usados nos capítulos seguintes. No
-próximo capítulo são apresentadas a redes neurais dinâmicas, base para as redes propostas neste
-trabalho.
-
-# Conseguiu adquirir algum resultado com a incubadora? Ou do carro?
 
 O Capitulo DISPOSITIVOS E PROTOCOLOS, achei o mais raso do trabalho. Qual referência retirou essa parte? Poderia procurar alguns livros de referencia da área.
 Tipo, você falou que o CLP é o mais utilizado, mas não chegou a usar ele. Tem outros? Quais? O que citou no Capitulo 2, usou no trabalho? Poderia encorpar mais esse capitulo.
@@ -34,5 +19,20 @@ depois mostrar as novas ferramentas e mostrar onde o trabalho se encaixa. Assim 
 da necessidade e estudo de pesquisa na área. Em geral está encaminhado.
 
 Seria interessante em um deles mostrar um comparativo com o ScadaBR, outro free.
-Olha com calma esses pontos, que até quarta queria olhar o teu trabalho mais com calma. Lendo tudo de forma mais rigorosa.
-Olha o tempo verbal e o encadeamento das ideias.
+
+
+
+
+# Ai inserir: Objetivos, Objetivo Geral. Objetivos Específicos e Organização do Trabalho.
+# Cápitulo 4, substituir o nome por Sistema Proposto Ou Metodologi e Sistemas Proposto
+# Quando comçe o capitulo 2, você usa: Nesta seção, serão introduzidas tecnologias e ... Usa geralmente o presente: Nesta seção, são introduzidas tecnologias e
+#Ao final de cada capitulo, fazer um breve resumo e ligar com o proximo, exemplo:
+#2.9 Conclusão
+#Este capítulo teve como principal finalidade mostrar os conceitos básicos de predição
+#linear e não-linear. Foi feito uma revisão do modelo linear ARMA, seguido pela análise da
+#necessidade de se usar modelos não-lineares para predição de séries temporais. Também são
+#feitas determinadas considerações sobre a reconstrução do espaço de estados.
+#Alguns conceitos abordados neste capítulo são usados nos capítulos seguintes. No
+#próximo capítulo são apresentadas a redes neurais dinâmicas, base para as redes propostas neste
+#trabalho.
+# Conseguiu adquirir algum resultado com a incubadora? Ou do carro?
