@@ -1,23 +1,23 @@
 \chapter{Dispositivos e Protocolos}
 \label{chap:dispositivos-protocolos}
 
-Nesta seção, são introduzidas tecnologias existentes para supervisão de processos e aquisição de dados e os protocolos mais utilizados para isto. Vantagens e desvantagens são comentadas para justificar a escolha do método deste trabalho.
+Nesta seção, são introduzidas tecnologias existentes para supervisão de processos e aquisição de dados e os protocolos mais utilizados para estas finalidades. São avaliadas as vantagens e desvantagens em diferentes cenários para a escolha dos protocolos que melhor se adequam à este trabalho.
 
     \section{Automação Industrial}        
     \label{sec:automacao-industrial}
     
-    Para o aumento de produtividade de processos, a indústria utiliza diversas técnicas com o objetivo de introduzir máquinas eletromecânicas para a realização de tarefas que demandariam enorme esforço muscular e mental humanos. Além de oferecer um menor custo devido o aumento da capacidade de produção, essas técnicas acabam também por uniformizar o produto final e aumentar sua qualidade. Alguns conceitos utilizados na Automação Industrial e dispositivos empregados serão melhor descritos nesta seção.
+    Para o aumento de produtividade de processos, a indústria utiliza automação com o objetivo de introduzir máquinas eletromecânicas e sensores para a realização de tarefas que demandariam enorme esforço muscular e mental humanos. Além de oferecer um menor custo devido o aumento da capacidade de produção, esses elementos acabam também por uniformizar o produto final e aumentar sua qualidade. Alguns conceitos utilizados na Automação Industrial e dispositivos empregados serão melhor descritos nesta seção.
     
     \subsection{Interface Humano-Máquina}
     \label{sec:ihm}
 
-        A \gls{IHM} é uma ferramenta capaz de oferecer um aspecto visual de um ou mais processos à ela associados e, por meio de telas, fornece informações detalhadas sobre ele(s). Pode possuir teclado ou outras ferramentas para a interação do usuário com o processo final através de programas instalados no(s) dispositivo(s) \cite{mamede-instalacoes}. A Figura \ref{fig:figura-ihm} traz um exemplo de uma \gls{IHM} desenvolvida pela fabricante Branqs, que possui tela de 15 polegadas resistiva e colorida, entradas e saídas digitais integradas, além de outras funções que podem ser utilizadas para fornecer ao operador monitoramento e controle locais do processo em que esteja instalada \cite{Branqs}.
+        A \gls{IHM} é uma ferramenta capaz de oferecer um aspecto visual de um ou mais processos à ela associados e, por meio de telas, fornece informações detalhadas sobre ele(s). Pode possuir teclado ou outras ferramentas para a interação do usuário com o processo final através de programas instalados no(s) dispositivo(s) \cite{mamede-instalacoes}. Na Figura \ref{fig:figura-ihm} é apresentado um exemplo de uma \gls{IHM} desenvolvida pela fabricante Branqs, que possui tela de 15 polegadas resistiva e colorida, entradas e saídas digitais integradas, além de outras funções que podem ser utilizadas para fornecer ao operador monitoramento e controle locais do processo em que esteja instalada \cite{Branqs}.
         
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-ihm} Exemplo de IHM da fabricante Branqs.}
 		%\centering
 		\UFCfig{}{
-			\fbox{\includegraphics[width=8cm]{figuras/figura-ihm.jpg}}
+			\fbox{\includegraphics[width=6cm]{figuras/figura-ihm.jpg}}
 		}{
 			\Fonte{\cite{Branqs}}
 		}	
@@ -26,32 +26,20 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
     \subsection{Unidade de Aquisição de Dados}
     \label{sec:uad}
 
-        \gls{UAD} são dispositivos que recebem informações relativas ao processo em que estão inseridas e as transferem à um controlador de processo ou diretamente ao sistema de supervisão e controle, onde serão processadas e organizadas para exibição  \cite{mamede-instalacoes}. Dividem-se em duas categorias mais específicas:
+        \gls{UAD} são dispositivos que recebem informações relativas ao processo em que estão inseridas e as transferem à um controlador de processo ou diretamente ao sistema de supervisão e controle, onde serão processadas e organizadas para exibição  \cite{mamede-instalacoes}.
+        \newpage
+        Dividem-se em duas categorias mais específicas:
         
         \begin{alineascomponto}
-        	\item \gls{UD}
-        	\item \gls{UADC}
-        \end{alineascomponto}
-        
-    \subsubsection{Unidade Dedicada}
-    \label{sec:ud}
-
-    É um dispositivo inserido dentro do processo em que se mantenha apenas uma função dedicada  \cite{mamede-instalacoes}, como exemplos: relés digitais, intertravamento, etc.
-
-    \subsubsection{Unidade de Aquisição de Dados e Controle}
-    \label{sec:uadc}
-
-        Tem a função de adquirir dados e controlar ações nos equipamentos respectivos, são compostos por cartões de eletrônicos associados cada um à uma função específica, unidades lógicas, memórias,  entradas e saídas de dados digitais ou analógicos \cite{mamede-instalacoes}. Dentre elas, as mais comuns são:
-        
-        \begin{alineascomponto}
-        	\item Controlador Lógico Programável
-        	\item Unidade Terminal Remota
+        	\item \gls{UD}: é um dispositivo inserido dentro do processo em que se mantenha apenas uma função dedicada  \cite{mamede-instalacoes}, como exemplos: relés digitais, intertravamento, etc.
+        	\item \gls{UADC}: 
+        	tem a função de adquirir dados e controlar ações nos equipamentos respectivos, são compostos por cartões de eletrônicos associados cada um à uma função específica, unidades lógicas, memórias,  entradas e saídas de dados digitais ou analógicos \cite{mamede-instalacoes}. Dentre elas, as mais comuns são: Controlador Lógico Programável e Unidade Terminal Remota.
         \end{alineascomponto}
 
-    \subsubsubsection{Controlador Lógico Programável}
+    \subsubsection{Controlador Lógico Programável}
     \label{sec:clp}
 
-       \gls{CLP} é a \gls{UADC} mais utilizada para controle de equipamentos através de programas desenvolvidos externamente pelo utilizador e nele gravados, simulando à nível de \textit{software} e substituindo: chaves, contatores, temporizadores, relés e outros dispositivos. Permitem a inclusão de cartões eletrônicos para a realização de diferentes tarefas específicas. Possui \gls{IHM}, onde o utilizador pode alterar a programação ou executar tarefas configuradas no \gls{CLP} \cite{mamede-instalacoes}. A Figura \ref{fig:figura-clp} mostra um \gls{CLP} da fabricante WEG, de modelo PLC300 que possui todas as características aqui descritas.
+       \gls{CLP} é uma \gls{UADC} muito utilizada para controle de equipamentos através de programas desenvolvidos externamente pelo utilizador e nele gravados, simulando à nível de \textit{software} e substituindo: chaves, contatores, temporizadores, relés e outros dispositivos \cite{CLPManual}. Permite a inclusão de cartões eletrônicos para a realização de diferentes tarefas específicas. Possui \gls{IHM}, onde o utilizador pode alterar a programação ou executar tarefas configuradas no \gls{CLP} \cite{mamede-instalacoes}. Na Figura \ref{fig:figura-clp} é apresentado um \gls{CLP} da fabricante WEG, de modelo PLC300 que possui todas as características aqui descritas.
        
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-clp} Exemplo de CLP de modelo PLC300 da fabricante WEG.}
@@ -63,16 +51,16 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
 		}	
 	    \end{figure}
 	    
-    \subsubsubsection{Unidade Terminal Remota}
+    \subsubsection{Unidade Terminal Remota}
     \label{sec:utr}
 
-       \gls{UTR} é uma \gls{UADC} responsável por coletar informações e executar comandos de equipamentos do processo, sejam eles digitais ou analógicos. Possuem capacidade de executar programas em modo local independente do sistema de supervisão, ao mesmo tempo que possui capacidade de integração com o mesmo. Os comandos locais para equipamentos são feitos através de relés de maneira similar ao que ocorre no \gls{CLP}, por rotinas específicas armazenadas em programas gravados na própria \gls{UTR} \cite{mamede-instalacoes}. A Figura \ref{fig:figura-utr} mostra um \gls{UTR} da fabricante WEG, de modelo RUW-03 que possui todas as características aqui descritas.
+       \gls{UTR} é uma \gls{UADC} responsável por coletar informações e executar comandos de equipamentos do processo, sejam eles digitais ou analógicos. Possuem capacidade de executar programas em modo local independente do sistema de supervisão, ao mesmo tempo que possui capacidade de integração com o mesmo. Os comandos locais para equipamentos são feitos através de relés de maneira similar ao que ocorre no \gls{CLP}, por rotinas específicas armazenadas em programas gravados na própria \gls{UTR} \cite{mamede-instalacoes}. Na Figura \ref{fig:figura-utr} é apresentado um \gls{UTR} da fabricante WEG, de modelo RUW-03 que possui todas as características aqui descritas.
        
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-utr} Exemplo de UTR de modelo RUW-03 da fabricante WEG.}
 		%\centering
 		\UFCfig{}{
-			\fbox{\includegraphics[width=10cm]{figuras/utr-weg.jpg}}
+			\fbox{\includegraphics[width=8cm]{figuras/utr-weg.jpg}}
 		}{
 			\Fonte{\cite{RUW03}}
 		}	
@@ -86,14 +74,14 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
     \subsection{Modbus}
     \label{sec:modbus}
     
-    Modbus é um protocolo de comunicação de dados voltado à automação industrial. Desenvolvido em 1979, pela \textit{Modicon}, é até hoje utilizado vastamente na indústria em \glspl{CLP} para comandos e aquisição de informações. Podem ser utilizados os padrões: RS-232, RS-485 ou Ethernet para a camada física de ligação, através de sinais discretos ou analógicos. É geralmente utilizado no tipo mestre-escravo, onde os escravos só enviam comunicação quando solicitadas pelo mestre  \cite{Modbus}.
+    Modbus é um protocolo de comunicação de dados voltado à automação industrial. Desenvolvido em 1979, pela \textit{Modicon}, é até hoje utilizado na indústria em \glspl{CLP} para comandos e aquisição de informações \cite{CLPManual}. Podem ser utilizados os padrões: RS-232, RS-485 ou Ethernet para a camada física de ligação, através de sinais discretos ou analógicos. É geralmente utilizado no tipo mestre-escravo, onde os escravos só enviam comunicação quando solicitadas pelo mestre  \cite{Modbus}.
     
     \subsubsection{Modbus Serial}
     \label{sec:modbus-serial}
 
-        Em redes baseadas em RS-232 e RS-485, a comunicação do Modbus é feita de forma serial através de dois modos distintos: \gls{RTU} e \gls{ASCII}. A Figura \ref{fig:figura-modbus-serial} e Tabela \ref{tab:tabela-modbus-serial} representam os pinos da estrutura física RS-485 utilizado pelo Modbus Serial \cite{Modbus}.
+        Em redes baseadas em RS-232 e RS-485, a comunicação do Modbus é feita de forma serial através de dois modos distintos: \gls{RTU} e \gls{ASCII}. Na Figura \ref{fig:figura-modbus-serial} são representados as disposições enquanto na Tabela \ref{tab:tabela-modbus-serial} são descritos os pinos da estrutura física RS-485 utilizado pelo Modbus Serial \cite{Modbus}.
         
-        No \gls{RTU}, para cada byte transmitido, são codificados 2 caracteres. Os números variam entre -32768 e 32767, o tamanho da palavra RTU é de 8 bits.
+        No \gls{RTU}, para cada byte transmitido, são codificados em 2 caracteres. Os números variam entre -32768 e 32767, o tamanho da palavra RTU é de 8 bits, organizados conforme a Tabela \ref{tab:tabela-modbus-rtu}. No \gls{ASCII}, os dados são codificados com base na tabela \gls{ASCII}, em que cada byte é transmitido através de dois caracteres. O tamanho da palavra ASCII é de 7 bits, utilizando-se caracteres de intervalos 0-9 ou A-F e entre duas mensagens, 3-5 caracteres, organizados conforme a Tabela \ref{tab:tabela-modbus-ascii}.
         
         \begin{table}[h!]	
         	\centering
@@ -111,8 +99,6 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
         }
         \end{table}
         
-        No \gls{ASCII}, os dados são codificados com base na tabela \gls{ASCII}, em que cada byte é transmitido através de dois caracteres. O tamanho da palavra ASCII é de 7 bits, utilizando-se caracteres de intervalos 0-9 ou A-F e entre duas mensagens, 3-5 caracteres.
-        
         \begin{table}[h!]	
         	\centering
         	\Caption{\label{tab:tabela-modbus-ascii} Representação do pacote no modo ASCII.}	
@@ -121,7 +107,7 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
         			\toprule
         			Início & Endereço & Função & Dados & LRC & Final \\
         			\midrule \midrule
-        			":" (ASCII 0x3Ah) & 2 caracteres & 2 caracteres & 0 a 2 x 252 caracteres & 2 caracteres & CR+LF (ASCII 0x0Dh + 0x0Ah) \\
+        			":" & 2 caracteres & 2 caracteres & 0 a 2 x 252 caracteres & 2 caracteres & CR+LF \\
         			\bottomrule
         		\end{tabular}
         	}{
@@ -166,16 +152,16 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
     \subsubsection{Modbus TCP/IP}
     \label{sec:modbus-tcp}
 
-        As redes baseadas em Ethernet, sob o protocolo \gls{TCP/IP}, se tornaram o método de transporte comum na Internet. O \gls{TCP/IP} é um conjunto de protocolos em camadas, que oferece confiabilidade no transporte de dados entre máquinas, e devido à isso, este padrão torna-se uma opção ideal para sistemas empresariais corporativos. O Modbus \gls{TCP/IP} tornou-se muito utilizado devido sua simplicidade e baixo custo, demandando \textit{hardwares} mínimos para ser utilizado. A maioria dos dispositivos Modbus atualmente presentes no mercado, suportam o padrão \gls{TCP/IP}, aumentando a cada ano a disponibilidade. Há também a possibilidade de conversão entre TCP/IP e Serial, onde é possível garantir a retrocompatibilidade entre dispositivos. A Figura \ref{fig:figura-modbus-ethernet} e Tabela \ref{tab:tabela-modbus-ethernet} trazem a representação do conector utilizado no Modbus \gls{TCP/IP} \cite{Modbus}.
+        As redes baseadas em Ethernet, sob o protocolo \gls{TCP/IP}, foram desenvolvidas para a substituição do Serial devido a simplicidade de seus conectores e uso. O \gls{TCP/IP} é um conjunto de protocolos em camadas, que oferece confiabilidade no transporte de dados entre máquinas, e devido à isso, este padrão torna-se uma opção ideal para sistemas empresariais corporativos. O Modbus \gls{TCP/IP} tornou-se muito utilizado devido sua simplicidade e baixo custo, demandando \textit{hardwares} mínimos para ser utilizado. A maioria dos dispositivos Modbus atualmente presentes no mercado, suportam o padrão \gls{TCP/IP}, aumentando a cada ano a disponibilidade. Há também a possibilidade de conversão entre TCP/IP e Serial, onde é possível garantir a retrocompatibilidade entre dispositivos. Na Figura \ref{fig:figura-modbus-ethernet} é apresentada a pinagem e na Tabela \ref{tab:tabela-modbus-ethernet}, a caracterização por pino do conector utilizado no Modbus \gls{TCP/IP} \cite{Modbus}.
 
         
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-modbus-ethernet} Pinagem do conector RJ45 utilizado no protocolo Modbus Ethernet.}
 		%\centering
 		\UFCfig{}{
-			\fbox{\includegraphics[width=5cm]{figuras/modbus-ethernet.jpg}}
+			\fbox{\includegraphics[width=4cm]{figuras/modbus-ethernet.jpg}}
 		}{
-			\Fonte{Adaptado de se.com - Acessado em: 28/03/2019}
+			\Fonte{Adaptado de se.com}
 		}	
 	    \end{figure}
 	    
@@ -206,24 +192,26 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
     \subsection{OPC}
     \label{sec:opc}
     
-        \gls{OPC}, inicialmente chamado \textit{Object Linking and Embedding for Process Control}, desenvolvido pela \textit{OPC Foundation} em 1996 e gerenciado por esta desde então, é o padrão de interoperabilidade para o transporte seguro e confiável de informações no espaço industrial, ele é independente de plataforma e garante o fluxo contínuo de informações entre dispositivos de vários fornecedores. É uma série de especificações desenvolvidas por fornecedores do setor, usuários e desenvolvedores. Essas especificações definem a interface entre Clientes e Servidores, bem como Servidores e Servidores, incluindo acesso a dados em tempo real, monitoramento de alarmes e eventos, acesso a dados históricos e outros aplicativos. \cite{OPC}
+        \gls{OPC}, inicialmente chamado \textit{Object Linking and Embedding for Process Control}, desenvolvido pela \textit{OPC Foundation} em 1996 e gerenciado por esta desde então, o \gls{OPC} é o padrão de interoperabilidade para o transporte seguro e confiável de informações no espaço industrial, ele é independente de plataforma e garante o fluxo contínuo de informações entre dispositivos de vários fornecedores. É uma série de especificações desenvolvidas por fornecedores do setor, usuários e desenvolvedores. Essas especificações definem a interface entre Clientes e Servidores, bem como Servidores e Servidores, incluindo acesso a dados em tempo real, monitoramento de alarmes e eventos, acesso a dados históricos e outros aplicativos. \cite{OPC}
         
-        Seu propósito inicial era agregar vários outros tipos de protocolos distintos de \glspl{CLP}, proprietários ou não, como: Modbus (seção \ref{sec:modbus}), Profibus, etc, de forma simplificada, para que \glspl{IHM} ou SCADAs (Capítulo \ref{chap:scada}) pudessem solicitar informações através de comunicação genérica, permitindo então, que os usuários implementassem sistemas usando os melhores produtos, interagindo perfeitamente via \gls{OPC}.
+        Seu propósito inicial era agregar vários outros tipos de protocolos distintos de \glspl{CLP}, proprietários ou não, como: Modbus (seção \ref{sec:modbus}), Profibus, etc, de forma simplificada, através de comunicação genérica, permitindo então, que os usuários implementassem sistemas usando os melhores produtos, interagindo perfeitamente via \gls{OPC}.
 
     \subsubsection{OPC Classic}
     \label{sec:opc-classic}
 
-        Inicialmente, o padrão \gls{OPC} era restrito e baseado na plataforma \textit{Windows}, utilizando \gls{COM/DCOM} para a comunicação entre \textit{softwares}. Como visto na sigla original do \gls{OPC}, ele era suportado por \gls{OLE} voltado à Controle de Processo, essas especificações, agora conhecidas como \gls{OPC} \textit{Classic}, tiveram ampla adoção em vários setores \cite{OPCClassic}. Na Figura \ref{fig:figura-opc-classic} é representado funcionamento de um sistema que utilize \gls{OPC} \textit{Classic}, onde o Servidor \gls{OPC} recebe informações de inúmeros módulos de aquisição de dados, de diferentes fabricantes e diferentes protocolos e permite a interoperabilidade deles com o Cliente \gls{OPC}, de forma genérica.
+        Inicialmente, o padrão \gls{OPC} era restrito e baseado na plataforma \textit{Windows}, utilizando \gls{COM/DCOM} para a comunicação entre \textit{softwares}. Como visto na sigla original do \gls{OPC}, ele era suportado por \gls{OLE} voltado à Controle de Processo, essas especificações, agora conhecidas como \gls{OPC} \textit{Classic}, tiveram ampla adoção em vários setores \cite{OPCClassic}. Na Figura \ref{fig:figura-opc-classic} é representado o funcionamento de um sistema que utilize \gls{OPC} \textit{Classic}, onde o Servidor \gls{OPC} recebe informações de inúmeros módulos de aquisição de dados, de diferentes fabricantes e diferentes protocolos e permite a interoperabilidade deles com o Cliente \gls{OPC}, de forma genérica.
                 
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-opc-classic} Diagrama do funcionamento de um sistema que utilize OPC Classic.}
 		%\centering
 		\UFCfig{}{
-			\fbox{\includegraphics[width=12cm]{figuras/opc.pdf}}
+			\fbox{\includegraphics[width=10cm]{figuras/opc.pdf}}
 		}{
 			\Fonte{O autor}
 		}	
 	    \end{figure}
+	    
+	    \quad
 	    
 	    Existem três definições principais:
         
@@ -236,13 +224,13 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
     \subsubsection{OPC-UA}
     \label{sec:opc-ua}
 
-        Com a introdução de arquiteturas orientadas a serviços em sistemas de manufatura, surgiram novos desafios em segurança e modelagem de dados, a \textit{OPC Foundation} desenvolveu as especificações do \gls{OPC-UA} em 2008, sendo uma arquitetura orientada a serviços independentes, aberta e escalável.
+        Com a introdução de arquiteturas orientadas a serviços em sistemas de manufatura, surgiram novos desafios em segurança e modelagem de dados, a \textit{OPC Foundation} desenvolveu as especificações do \gls{OPC-UA} em 2008, sendo uma arquitetura orientada a serviços independentes, aberta e escalável. Na Figura \ref{fig:figura-opc-ua} é representado um diagrama sobre seu funcionamento.
         
 	    \begin{figure}[!h]
 		\Caption{\label{fig:figura-opc-ua} Diagrama do funcionamento de um sistema que utilize OPC-UA.}
 		%\centering
 		\UFCfig{}{
-			\fbox{\includegraphics[width=10cm]{figuras/opc-ua.pdf}}
+			\fbox{\includegraphics[width=8cm]{figuras/opc-ua.pdf}}
 		}{
 			\Fonte{O autor}
 		}	
@@ -251,11 +239,11 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
         O \gls{OPC-UA} integra todas as funcionalidades do \gls{OPC} \textit{Classic}, além de outras melhorias, como:
         
         \begin{alineascomponto}
-        	\item Segurança: criptografia de 128 ou 256 bits, verificação de erros para que a mensagem recebida seja exatamente a mensagem enviada, autenticação através de certificados e níveis de permissão.
-        	\item Extensível: é possível adicionar novos recursos mantendo a compatibilidade com aplicações já existentes.
-        	\item Descoberta: permite a busca por servidores \gls{OPC} na rede ou em computadores.
-        	\item Hierarquia: todos os dados são dispostos de forma hierárquica, permitindo informações simples e complexas na mesma estrutura.
-        	\item Auditoria: os dados à serem lidos/escritos possuem permissões de acesso tais como registros sobre sua utilização.
+        	\item Segurança: criptografia de 128 ou 256 bits, verificação de erros para que a mensagem recebida seja exatamente a mensagem enviada, autenticação através de certificados e níveis de permissão;
+        	\item Extensível: é possível adicionar novos recursos mantendo a compatibilidade com aplicações já existentes;
+        	\item Descoberta: permite a busca por servidores \gls{OPC} na rede ou em computadores;
+        	\item Hierarquia: todos os dados são dispostos de forma hierárquica, permitindo informações simples e complexas na mesma estrutura;
+        	\item Auditoria: os dados à serem lidos/escritos possuem permissões de acesso tais como registros sobre sua utilização;
         	\item Independência de plataforma: funciona em computadores tradicionais e servidores em nuvem, seja o sistema operacional \textit{Linux}, \textit{Windows} ou outros, \glspl{CLP}, micro-controladores, etc.
         	
         \end{alineascomponto}
@@ -268,14 +256,14 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
     
         \subsubsection{HTTPS}
         \label{sec:https}
-        O \gls{HTTPS} é uma derivação do protocolo de comunicação \gls{HTTP} para mensagens seguras, projetado como uma camada de segurança utilizando o protocolo \gls{TLS}. Além de fornecer uma variedade de mecanismos de segurança para clientes e servidores, não são necessárias chaves públicas do lado cliente, suporta criptografia ponta a ponta e torna possível verificar a autenticidade do servidor através de certificados digitais. Seu uso é recomendado em redes inseguras, evitando a clonagem das informações trafegadas que poderia acontecer na ausência de criptografia \cite{HTTPS}. Segundo \cite{usoHTTPS}, em fevereiro de 2019, mais de 58.44\% dos 1 milhões \textit{websites} mais visitados da \textit{internet} já utilizavam o \gls{HTTPS}.
+        O \gls{HTTPS} é uma derivação do protocolo de comunicação \gls{HTTP} para mensagens seguras, projetado como uma camada de segurança utilizando o protocolo \gls{TLS}. Além de fornecer uma variedade de mecanismos de segurança para clientes e servidores, não são necessárias chaves públicas do lado cliente, suporta criptografia ponta a ponta e torna possível verificar a autenticidade do servidor através de certificados digitais. Seu uso é recomendado em redes inseguras, evitando a clonagem das informações trafegadas que poderia acontecer na ausência de criptografia \cite{HTTPS}. Segundo \cite{usoHTTPS}, em fevereiro de 2019, mais de 58.44\% dos 1 milhões \textit{websites} mais visitados da internet já utilizavam o \gls{HTTPS}.
         
         \subsubsection{REST}
         \label{sec:rest}
 
         O \gls{REST} é um estilo de arquitetura para \textit{\gls{WEB} Service},  uma solução padronizada pela \gls{W3C} e \gls{OASIS} que busca fornecer interoperabilidade entre dispositivos e aplicações pela internet utilizando diferentes tipos de linguagens, o que a torna compatível com a maioria das aplicações já existentes \cite{W3C}.
         
-        O envio e recebimento das mensagens é realizada de forma simplificada através dos protocolos \gls{HTTP} ou \gls{HTTPS} utilizando os formatos: \gls{XML}, \gls{JSON} ou \gls{HTML} e métodos de chamada bem definidos: GET, POST, PUT, PATCH e DELETE. Comumente utilizado por empresas no o desenvolvimento de \gls{API} para acesso a informações específicas sobre serviços, aplicações, faturas, etc. A Figura \ref{fig:figura-mqtt1} traz uma ideia geral sobre o funcionamento de uma API que utiliza a arquitetura REST para troca dos dados.
+        O envio e recebimento das mensagens é realizada de forma simplificada através dos protocolos \gls{HTTP} ou \gls{HTTPS} utilizando os formatos: \gls{XML}, \gls{JSON} ou \gls{HTML} e métodos de chamada bem definidos: GET, POST, PUT, PATCH e DELETE. Comumente utilizado por empresas no o desenvolvimento de \gls{API} para acesso a informações específicas sobre serviços, aplicações, faturas, etc. Na Figura \ref{fig:figura-rest1} é apresentada uma ideia geral sobre o funcionamento de uma API que utiliza a arquitetura REST para troca dos dados.
             
             \begin{figure}[!h]
     		\Caption{\label{fig:figura-rest1} Representação do funcionamento de uma API REST.}
@@ -290,19 +278,21 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
     	\subsubsection{Métodos de Chamada}
     	\label{sec:metodos-chamada}
     	
-    	Quando uma nova requisição é feita, é necessário definir o método que será utilizado. Os métodos de chamada são padronizados para o protocolo \gls{HTTP} e são conhecidos como verbos, pois identificam a ação que será executada pela requisição. Os mais comuns são:
+    	Quando uma nova requisição é feita, é necessário definir o método que será utilizado. Os métodos de chamada são padronizados para o protocolo \gls{HTTP} e são conhecidos como verbos, pois identificam a ação que será executada pela requisição. Na Tabela \ref{tab:tabela-metodos-chamada} é apresentado um comparativo resumido sobre os métodos de chamada apresentados. Os mais comuns são:
     	
         \begin{alineascomponto}
-        	\item GET: Apenas recebe informações, as requisições devem ser seguras e idempotentes, ou seja, independente de quantas vezes ela seja repetida, com os mesmos parâmetros, o resultado sempre deve ser o mesmo. Podem haver solicitações parciais ou condicionais.
+        	\item GET: apenas recebe informações, as requisições devem ser seguras e idempotentes, ou seja, independente de quantas vezes ela seja repetida, com os mesmos parâmetros, o resultado sempre deve ser o mesmo. Podem haver solicitações parciais ou condicionais;
 
-            \item POST: Envia e recebe informações, é utilizado na criação de novos "objetos" (elementos da aplicação), mas também é comum o uso para atualização destes.
+            \item POST: envia e recebe informações, é utilizado na criação de novos "objetos"\: (elementos da aplicação), mas também é comum o uso para atualização destes;
             
-            \item PUT: Envia e recebe informações, é utilizado na atualização de "objetos" já existentes, na falta do envio de algumas informações necessárias, estas são considerados nulas ou vazias. Assim como o GET, o PUT é idempotente.
+            \item PUT: envia e recebe informações, é utilizado na atualização de "objetos"\: já existentes, na falta do envio de algumas informações necessárias, estas são considerados nulas ou vazias. Assim como o GET, o PUT é idempotente;
             
-            \item PATCH: Envia e recebe de informações, similar ao PUT,  é utilizado na atualização de "objetos" já existentes, porém, apenas os campos especificados.
+            \item PATCH: envia e recebe de informações, similar ao PUT,  é utilizado na atualização de "objetos"\: já existentes, porém, apenas os campos especificados;
 
-            \item DELETE: Envia e recebe de informações, é utilizado na exclusão de "objetos", podendo ser imediato ou não.
+            \item DELETE: envia e recebe de informações, é utilizado na exclusão de "objetos", podendo ser imediato ou não.
         \end{alineascomponto}
+        
+       
         
         \begin{table}[h!]	
         	\centering
@@ -326,26 +316,29 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
 
     	\subsubsection{Formatos de Conteúdo}
     	\label{sec:formatos-de-conteudo}
-    	São tipos de linguagem de marcação para necessidades especiais com a finalidade de transferência de informações pela \textit{internet}. Os mais comuns são:
+    	São tipos de linguagem de marcação para necessidades especiais com a finalidade de transferência de informações pela internet. Os mais comuns são:
     	
         \begin{alineascomponto}
-        	\item \gls{HTML} (texto puro).
-            \item \gls{XML}:  É baseado em texto simples, de simples leitura, pode representar listas, registros e árvores. Seu próprio formato descreve sua estrutura, campos e valores, os dados são organizados de forma hierárquica e é editável em qualquer ambiente \cite{XML}. A Figura \ref{fig:figura-xml} traz um exemplo de utilização do formato \gls{XML}.
+        	\item \gls{HTML}: é o formato de texto puro definido em requisições do protocolo \gls{HTTP}.
+            \item \gls{XML}:  é baseado em texto simples, de simples leitura, pode representar listas, registros e árvores. Seu próprio formato descreve sua estrutura, campos e valores, os dados são organizados de forma hierárquica e é editável em qualquer ambiente \cite{XML}. Na Figura \ref{fig:figura-xml} é apresentado um exemplo de utilização do formato \gls{XML}.
+
+            \item \gls{JSON}: é um formato leve de informações, de simples leitura e análise. Assim como o \gls{XML} é hierárquico, em pares, ou seja, para cada rótulo, há um valor associado ou sub-conjunto destes. Na Figura \ref{fig:figura-json} é apresentado um exemplo de utilização do formato \gls{JSON} \cite{JSON}.
+            
                 \begin{figure}[!h]
         		\Caption{\label{fig:figura-xml} Exemplo de informações organizadas no formato XML.}
         		%\centering
         		\UFCfig{}{
-        			\fbox{\includegraphics[width=10cm]{figuras/exemploXML.png}}
+        			\fbox{\includegraphics[width=12cm]{figuras/exemploXML.png}}
         		}{
         			\Fonte{O autor}
         		}	
         	    \end{figure}
-            \item \gls{JSON}: É um formato leve de informações, de simples leitura e análise. Assim como o \gls{XML} é hierárquico, em pares, ou seja, para cada rótulo, há um valor associado ou sub-conjunto destes. A Figura \ref{fig:figura-json} traz um exemplo de utilização do formato \gls{JSON} \cite{JSON}.
+            
                 \begin{figure}[!h]
         		\Caption{\label{fig:figura-json} Exemplo de informações organizadas no formato JSON.}
         		%\centering
         		\UFCfig{}{
-        			\fbox{\includegraphics[width=11cm]{figuras/exemploJSON.png}}
+        			\fbox{\includegraphics[width=12cm]{figuras/exemploJSON.png}}
         		}{
         			\Fonte{O autor}
         		}	
@@ -355,7 +348,7 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
     \subsection{MQTT}
     \label{sec:mqtt}
 
-        O \gls{MQTT} foi desenvolvido por Dr. Andy Stanford-Clark, da IBM, e Arlen Nipper, da Arcom no ano de 1999. É um protocolo de mensagens extremamente simples e leve, projetado para ser utilizado em dispositivos que tenham restrição de largura de banda, alta latência ou baixa confiabilidade. Baseia-se na topologia publicador/assinatura, onde as mensagens são enviadas com identificação através de tópicos (\textit{topics}) ou sub-tópicos, o que permite uma única mensagem ser destinada à múltiplos receptores com apenas um envio, ou da mesma forma, receber informações agrupadas de vários sub-tópicos. O elemento responsável pelo envio e recebimento de mensagens é denominado \textit{broker}, que funciona como uma central, intermediando as informações enviadas pelos dispositivos e aplicações da rede \cite{MQTT}. A Figura \ref{fig:figura-mqtt1} apresenta um exemplo de utilização ao qual um subscritor (possível dispositivo associado à rede) recebe informações de dois sensores utilizando um único tópico.
+        O \gls{MQTT} foi desenvolvido por Dr. Andy Stanford-Clark, da IBM, e Arlen Nipper, da Arcom no ano de 1999. É um protocolo de mensagens extremamente simples e leve, projetado para ser utilizado em dispositivos que tenham restrição de largura de banda, alta latência ou baixa confiabilidade. Baseia-se na topologia publicador/assinatura, onde as mensagens são enviadas com identificação através de tópicos (\textit{topics}) ou sub-tópicos, o que permite uma única mensagem ser destinada à múltiplos receptores com apenas um envio, ou da mesma forma, receber informações agrupadas de vários sub-tópicos. O elemento responsável pelo envio e recebimento de mensagens é denominado \textit{broker}, que funciona como uma central, intermediando as informações enviadas pelos dispositivos e aplicações da rede \cite{MQTT}. Na Figura \ref{fig:figura-mqtt1} é apresentado     um exemplo de utilização ao qual um subscritor (possível dispositivo associado à rede) recebe informações de dois sensores utilizando um único tópico.
         
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-mqtt1} Representação do funcionamento do MQTT.}
@@ -366,13 +359,13 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
 			\Fonte{O autor}
 		}	
 	    \end{figure}
-	    
+	    \newpage
 	    A autenticação é feita através de usuário e senha, com a possibilidade de conexão criptografada e a escolha de três níveis de serviço (prioridades na transmissão) que dependerá do projeto em questão, qualidade de conexão do dispositivo, entre outros, sendo elas: 
 	    
         \begin{alineascomponto}
-        	\item Nível 0: Não é feita quaisquer confirmações sobre a entrega da informação, de forma que a mensagem é descartada após o envio.
-        	\item Nível 1: São feitas várias tentativas de entrega até que se obtenha confirmação no recebimento, mesmo que isso implique no recebimento em duplicidade.
-        	\item Nível 2: Há garantia de que a mensagem só será entregue uma vez, havendo tanto a confirmação de entrega da mensagem como a confirmação da confirmação de entrega.
+        	\item Nível 0: não é feita quaisquer confirmações sobre a entrega da informação, de forma que a mensagem é descartada após o envio.
+        	\item Nível 1: são feitas várias tentativas de entrega até que se obtenha confirmação no recebimento, mesmo que isso implique no recebimento em duplicidade.
+        	\item Nível 2: há garantia de que a mensagem só será entregue uma vez, havendo tanto a confirmação de entrega da mensagem como a confirmação da confirmação de entrega.
         \end{alineascomponto}
 
 \section{Síntese}

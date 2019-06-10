@@ -1,35 +1,57 @@
 \chapter{Introdução}
 \label{chap:introducao}
 
-A indústria busca frequentemente métodos que possam agilizar e aumentar a eficiência nos seus processos, alguns trabalhos implementam automação para isto, como o \cite{IndustriaEficiencia}, que em um sistema de abastecimento de água, consegue a diminuição no desgaste de motores, menor consumo de energia e um maior controle do processo com supervisão em tempo real através de uma análise detalhada sobre ele. Para que isso aconteça, fazem-se necessárias ações e ferramentas específicas para conduzir uma mudança de forma significativa.
-Uma gestão interna, confiável e integrada, aumenta a produtividade e diminui o tempo de atuação em  determinadas tarefas, \cite{InterfaceTempoReal} demonstra que com o auxílio de uma Interface em Tempo Real para o controle de um equipamento de produção, é possível o aumento da produtividade além de prever a capacidade produtiva distribuindo eficientemente os recursos de produção. Existe uma infinidade de fatores à serem considerados para a manutenção de um processo, tais como: materiais, equipamentos e qualificação de colaboradores através de procedimentos que sejam capazes de oferecer autonomia e continuidade no serviço. 
+Com o surgimento de computadores, conectividade e a inclusão de máquinas automáticas no ambiente de trabalho, mediante a terceira revolução industrial, iniciou-se uma necessidade de controle de todas as etapas do processo produtivo, não somente sobre a atuação dos profissionais, mas também sobre as informações específicas de partes do processo. Tornaram-se indispensáveis nestes casos, o uso de tecnologias para que a possibilidade de tomada de decisões, que antes não seriam possíveis devido uma infinidade de informações terem que ser analisadas de forma manual, ou simplesmente não pudessem ser adquiridas, sejam facilmente implementadas.
 
-Com o surgimento de computadores, conectividade e a inclusão de máquinas automáticas no ambiente de trabalho, mediante a terceira revolução industrial, iniciou-se uma necessidade de controle de todas as etapas do processo produtivo, não somente sobre a atuação dos profissionais, mas também sobre as informações específicas de partes do processo. Tornaram-se indispensáveis nestes casos, o uso de tecnologias para que a possibilidade de tomada de decisões, que antes não seriam possíveis devido uma infinidade de informações terem que ser analisadas de forma manual, ou simplesmente não poderem ser adquiridas, sejam agora facilmente implementadas. Uma indústria em que todas as partes do processo são conectadas à rede, denominada "Indústria 4.0", implica em uma quarta revolução industrial, em que seu histórico, desde a evolução da máquina à vapor ao uso de motores movidos à eletricidade e, em seguida, o uso da eletricidade para automatização do processo produtivo através da eletrônica, dá um passo mais adiante agora, a coleta extensiva destas informações que abre possibilidades para manutenções de diagnóstico e/ou preditivas que evitariam eventuais paradas, ou outras tarefas que resultem em ineficiência nas tarefas humanas ou em uso excessivo de recursos.
+Uma indústria em que todas as partes do processo são conectadas à rede, denominada "Indústria 4.0", implica em uma quarta revolução industrial, em que seu histórico, desde a evolução da máquina à vapor ao uso de motores movidos à eletricidade e, em seguida, o uso da eletricidade para automatização do processo produtivo através da eletrônica, dá um passo adiante: a coleta extensiva destas informações. Isto abre possibilidades para manutenções de diagnóstico e/ou preditivas, que evitariam eventuais paradas ou outras tarefas que resultem em ineficiência nas tarefas humanas, ou, em uso excessivo de recursos.
 
-Comunicação hoje, é algo de vital importância e, com a transição para a Indústria 4.0, serão necessários mecanismos que possam gerir e compatibilizar toda a informação, recursos computacionais que façam o processamento e canais que disponibilizem de forma remota estes dados.
+Existem vários fatores à serem considerados para a manutenção de um processo, tais como: materiais, equipamentos e qualificação de colaboradores, através de procedimentos que sejam capazes de oferecer autonomia e continuidade no serviço. \citeonline{marcorin2003analise}, fazem uma análise sobre o quão distante pode ser o custo de um processo produtivo que utiliza manutenção preditiva em detrimento de manutenções corretivas e/ou preventivas. Manutenções corretivas, ao qual só serão efetuadas se houver a indisponibilidade do equipamento por quebra de peças, tornam a substituição imprevisível, ocorrendo portanto custos relacionados à parada do processo produtivo. As manutenções preventivas são normalmente agendadas e definidas de acordo com o fabricante, onde os principais componentes que sofrem desgaste, são logo substituídos em um tempo pré-determinado. Entretanto, outras variáveis podem impactar neste desgaste, perdendo sua uniformidade e, por consequência, sendo substituídas peças abaixo do tempo de seu vida. Ou no caso de falha antecipada, trazem novamente imprevisibilidade ao processo. Por fim, o autor detalha a Manutenção Preditiva, que resultará no menor custo ao processo, onde com o acompanhamento de suas informações, podem ser feitos diagnósticos que permitem o agendamento da compra de peças e intervenção para substituição delas, reduzindo a imprevibilidade de paradas do processo e eventuais custos com estoque.
 
-Debater sobre este problema citando um caso que essa dificuldade causou, algum acidente, algum desperdício de dinheiro, ineficiência, dados concretos.
+São estudados métodos que possam agilizar e aumentar a eficiência nos processos. Isto pode ser verificado, por exemplo, no trabalho de \citeonline{IndustriaEficiencia}, que aplicado no sistema de abastecimento de água, conseguiu a diminuição no desgaste de motores, menor consumo de energia e um maior controle do processo com supervisão em tempo real através de uma análise detalhada sobre ele. Para que isso aconteça, fazem-se necessárias ações e ferramentas específicas para conduzir uma mudança de forma significativa.
+Uma gestão interna, confiável e integrada, aumenta a produtividade e diminui o tempo de atuação em  determinadas tarefas.  \citeonline{InterfaceTempoReal} demonstra que com o auxílio de uma Interface em Tempo Real para o controle de um equipamento de produção, é possível o aumento da produtividade além de prever a capacidade produtiva, distribuindo eficientemente os recursos de produção.
 
-Existem muitos dados, sensores, processos mais complexos a cada dia, dificuldade de mudança ou upgrade no hardware local para acompanhar isso e mostrar porque o processamento remoto é a solução.
+Comunicação hoje, é algo de vital importância e, com a transição para a Indústria 4.0, serão necessários mecanismos que possam gerir e compatibilizar todas estas informações, advindas de uma maior quantidade de sensores e processos cada vez mais complexos. Com um maior fluxo, um grande poder em recursos computacionais fazem-se necessários para o tratamento destes dados, que dependendo do quão grande seja, é necessária a atualização do \textit{hardware} local ou a migração da estrutura para um centro de dados que os comporte. \citeonline{santos2016internet}, discute arquiteturas e tecnologias básicas para utilização do conceito de internet das coisas que buscam a padronização de suas definições e também comunicações. Presente também no desenvolvimento do contexto industrial, o autor defende um ecossistema capaz unir todos os dispositivos de forma intuitiva sem serem necessárias adaptações para todos os padrões proprietários. Esta ideia é o princípio para a elaboração
+deste estudo, o qual possui seus objetivos discutidos a seguir.
 
-\section{Objetivos}
+\section{Objetivos Gerais e Secundários}
 \label{sec:objetivos}
 
-\subsection{Objetivo Geral}
-\label{sec:objetivo-geral}
-
-O objetivo geral deste trabalho é o desenvolvimento de um sistema capaz de adquirir dados provenientes de processos estudados e interagir com eles, tratá-los e armazená-los em uma estrutura com alta estabilidade e confiabilidade, oferecendo todos os recursos necessários para a utilização do mesmo, sem ser necessárias quaisquer configurações avançadas em servidores ou outros serviços como em  \textit{softwares} disponíveis no mercado.
-
-\subsection{Objetivos Específicos}
-\label{sec:objetivos-especificos}
-
+O objetivo geral deste trabalho é o desenvolvimento de um sistema capaz de adquirir dados provenientes de processos e interagir com eles, tratá-los e armazená-los em uma estrutura com alta estabilidade e confiabilidade, oferecendo todos os recursos necessários para a utilização do mesmo, sem ser necessárias quaisquer configurações avançadas em servidores ou outros serviços como em  \textit{softwares} disponíveis no mercado.
+\newpage
 Outros objetivos secundários podem ser alcançados através deste trabalho, como:
 
 \begin{alineascomponto}
-    \item oi
+	\item a inclusão de protocolos nativos a dispositivos baseados em internet das coisas e também comuns aos utilizados em processos industriais que passam por esta transição;
+    \item desenvolvimento de ferramentas colaborativas para que estudantes possam propor novas funcionalidades ou lógicas de uso mais eficientes e aproveitar as já existentes para a potencialização de trabalhos científicos.
 \end{alineascomponto}
+
+\section{Histórico de Desenvolvimento e Produção Científica}
+\label{sec:historico-producao}
+
+No ano de 2016, através de Iniciação Científica Voluntária, foi dado início ao desenvolvimento de um sistema de telemetria dinâmico capaz de adquirir informações de um sistema automotivo e disponibilizá-las através de visualização na internet. Concluído no ano de 2017, foi apresentado na Sessão de Painéis no XXIII Seminário de Iniciação Científica da Universidade Federal do Piauí e posteriormente obtida uma publicação relevante:
+
+\begin{alineascomponto}
+\item ROCHA NETO, W. B.; MENEZES JUNIOR, J. M. P.; SOUSA, R. V. L. C.
+Análise de dados obtidos através de um sistema de telemetria automotivo utilizando K-NN.\textit{ Anais do XIV Encontro Nacional de Inteligência Artificial e
+Computacional} (ENIAC’2017), Uberlândia-MG, 2017.
+\end{alineascomponto}
+
+No final do ano de 2018 foi retomado o desenvolvimento deste sistema, com o objetivo de adaptá-lo ao uso de outras áreas da Engenharia Elétrica, tendo sido implementado, por exemplo, no desenvolvimento de um controlador de irrigação parametrizado e controlado pela internet com objetivos acadêmicos.
+
+Por fim, no início do ano de 2019, com o objetivo de expandir sua utilização, foi desenvolvido o sistema objeto deste trabalho para comportar múltiplos projetos na mesma plataforma, construídos através de simples interações com uma interface de gerenciamento.
+
 
 \section{Organização do Trabalho}
 \label{sec:organizacao-trabalho}
 
-O restante deste trabalho está dividido conforme exposto a seguir. O Capítulo 2 é destinado às definições de dispositivos e protocolos que serão utilizados para desenvolver a ideia do sistema............
+O restante deste trabalho está dividido conforme exposto a seguir. O Capítulo 2 é destinado às definições de dispositivos e protocolos que serão utilizados para desenvolver a ideia de como funcionam os processos, os dispositivos capazes de adquirir informações. Assim como os métodos e formatos de dados aos quais são transmitidas estas informações para uma interface de gerenciamento ou um servidor de dados.
+
+O Capítulo 3 traz discussões sobre o conceito de Sistemas de Supervisão e Aquisição de Dados, apresenta vantagens e desvantagens destes sistemas, define suas variações existentes, oferece uma visão detalhada sobre como os dispositivos e protocolos do Capítulo 2 são utilizados para obtenção das informações e compara sistemas proprietários e de código aberto já disponíveis no mercado para este fim.
+
+No Capítulo 4, são definidos o modelo de distribuição do \textit{software} desenvolvido, protocolos compatíveis e como o módulo de aquisição de dados utiliza-os, as vantagens e desvantagens do modelo implementado, lógica e hierarquia do sistema, como são armazenados os dados recebidos, além de informações sobre segurança e recursos computacionais esperados.
+
+No Capítulo 5 é demonstrada a interface de gerenciamento desenvolvida, toda a metodologia de utilização do sistema e o detalhamento de todas as funcionalidades disponíveis.
+
+No Capítulo 6 são desenvolvidos exemplos de utilização do sistema proposto, demonstrando a integração do mesmo com quatro plataformas distintas e discutindo os resultados obtidos. Uma comparação é feita entre um sistema similar disponível no mercado e o desenvolvido neste projeto.
+
+Por fim, o Capítulo 7 é constituído por uma conclusão de tudo que foi discutido, apresenta a idealização do sistema como uma plataforma estudantil e os futuros trabalhos à serem desenvolvidos.
