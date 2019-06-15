@@ -86,11 +86,11 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
         \begin{table}[h!]	
         	\centering
         	\Caption{\label{tab:tabela-modbus-rtu} Representação do pacote no modo RTU.}	
-        	\IBGEtab{}{
-        		\begin{tabular}{crrrr}
+        	\UFCtab{}{
+        		\begin{tabular}{cccc}
         			\toprule
         			Endereço Escravo & Código Função & Dados & CRC \\
-        			\midrule \midrule
+        			\midrule %\midrule
         			1 byte & 1 byte & 0 a 252 bytes & 2 bytes (CRC-16) \\
         			\bottomrule
         		\end{tabular}
@@ -102,11 +102,11 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
         \begin{table}[h!]	
         	\centering
         	\Caption{\label{tab:tabela-modbus-ascii} Representação do pacote no modo ASCII.}	
-        	\IBGEtab{}{
-        		\begin{tabular}{crrrrrr}
+        	\UFCtab{}{
+        		\begin{tabular}{cccccc}
         			\toprule
         			Início & Endereço & Função & Dados & LRC & Final \\
-        			\midrule \midrule
+        			\midrule %\midrule
         			":" & 2 caracteres & 2 caracteres & 0 a 2 x 252 caracteres & 2 caracteres & CR+LF \\
         			\bottomrule
         		\end{tabular}
@@ -128,11 +128,11 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
 	   \begin{table}[h!]	
         	\centering
         	\Caption{\label{tab:tabela-modbus-serial} Pinagem do conector RS485 utilizado no protocolo Modbus Serial.}	
-        	\IBGEtab{}{
-        		\begin{tabular}{crrrrrr}
+        	\UFCtab{}{
+        		\begin{tabular}{cccccc}
         			\toprule
         			Pino &&&&& Sinal \\
-        			\midrule \midrule
+        			\midrule %\midrule
         			1 &&&&& Não conectado \\
         			2 &&&&& RX - Recepção \\
         			3 &&&&& TX - Envio \\
@@ -168,11 +168,11 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
         \begin{table}[h!]	
         	\centering
         	\Caption{\label{tab:tabela-modbus-ethernet} Pinagem do conector RJ45 utilizado no protocolo Modbus Ethernet.}	
-        	\IBGEtab{}{
-        		\begin{tabular}{crrrrrr}
+        	\UFCtab{}{
+        		\begin{tabular}{cccccc}
         			\toprule
         			Pino &&&&& Sinal \\
-        			\midrule \midrule
+        			\midrule %\midrule
         			1 &&&&& CAN\_H \\
         			2 &&&&& CAN\_L \\
         			3 &&&&& CAN\_GND \\
@@ -297,7 +297,7 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
         \begin{table}[h!]	
         	\centering
         	\Caption{\label{tab:tabela-metodos-chamada} Comparativo entre os métodos de chamada.}	
-        	\IBGEtab{}{
+        	\UFCtab{}{
         		\begin{tabular}{crrrr}
         			\toprule
         			Método & Descrição & Seguro & Idempotente \\
