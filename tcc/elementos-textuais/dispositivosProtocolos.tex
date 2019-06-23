@@ -31,15 +31,15 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
         Dividem-se em duas categorias mais específicas:
         
         \begin{alineascomponto}
-        	\item \gls{UD}: é um dispositivo inserido dentro do processo em que se mantenha apenas uma função dedicada  \cite{mamede-instalacoes}, como exemplos: relés digitais, intertravamento, etc.
+        	\item \gls{UD}: é um dispositivo inserido dentro do processo em que se mantenha apenas uma função dedicada  \cite{mamede-instalacoes}, como exemplos: relés digitais, etc.
         	\item \gls{UADC}: 
-        	tem a função de adquirir dados e controlar ações nos equipamentos respectivos, são compostos por cartões de eletrônicos associados cada um à uma função específica, unidades lógicas, memórias,  entradas e saídas de dados digitais ou analógicos \cite{mamede-instalacoes}. Dentre elas, as mais comuns são: Controlador Lógico Programável e Unidade Terminal Remota.
+        	tem a função de adquirir dados e controlar ações nos equipamentos respectivos, são compostos por cartões eletrônicos associados cada um à função específica, unidades lógicas, memórias,  entradas e saídas de dados digitais ou analógicos \cite{mamede-instalacoes}. Dentre elas, as mais comuns são: Controlador Lógico Programável e Unidade Terminal Remota.
         \end{alineascomponto}
 
     \subsubsection{Controlador Lógico Programável}
     \label{sec:clp}
 
-       \gls{CLP} é uma \gls{UADC} muito utilizada para controle de equipamentos através de programas desenvolvidos externamente pelo utilizador e nele gravados, simulando à nível de \textit{software} e substituindo: chaves, contatores, temporizadores, relés e outros dispositivos \cite{CLPManual}. Permite a inclusão de cartões eletrônicos para a realização de diferentes tarefas específicas. Possui \gls{IHM}, onde o utilizador pode alterar a programação ou executar tarefas configuradas no \gls{CLP} \cite{mamede-instalacoes}. Na Figura \ref{fig:figura-clp} é apresentado um \gls{CLP} da fabricante WEG, de modelo PLC300 que possui todas as características aqui descritas.
+       \gls{CLP} é uma \gls{UADC} muito utilizada para controle de equipamentos através de programas desenvolvidos externamente pelo utilizador e nele gravados, simulando a nível de \textit{software} e substituindo: chaves, contatores, temporizadores, relés e outros dispositivos \cite{CLPManual}. Permite a inclusão de cartões eletrônicos para a realização de diferentes tarefas específicas. Possui \gls{IHM}, onde o utilizador pode alterar a programação ou executar tarefas configuradas no \gls{CLP} \cite{mamede-instalacoes}. Na Figura \ref{fig:figura-clp} é apresentado um \gls{CLP} da fabricante WEG, de modelo PLC300 que possui todas as características aqui descritas.
        
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-clp} Exemplo de CLP de modelo PLC300 da fabricante WEG.}
@@ -252,18 +252,18 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
     \label{sec:http}
     \gls{HTTP}, coordenado pela \gls{W3C}, é um protocolo de comunicação à nível de aplicação para distribuição de informação de hipermídia, é base para comunicação pela \gls{WEB} desde 1990. Inicialmente, em sua versão HTTP/0.9, era um simples protocolo de transferência de dados não tratados através da Internet e em sua versão atual HTTP/1.1, lançado em 1999, foram implementadas outras funcionalidades como a possibilidade de troca de mensagens no formato \gls{MIME}, que carregam consigo metainformações sobre a requisição ou resposta e o corpo das informações transferidas \cite{HTTP}.
     
-    A transferência de informação acontece através de \textit{sockets} sob o protocolo \gls{TCP/IP}, onde com a arquitetura cliente-servidor, o cliente envia uma requisição ao servidor, com o padrão \gls{MIME} e  localizado através endereços, como o \gls{URI}, que identifica a informação acessada e \gls{URL}, que determina a localização desta informação, a conexão é completada e o servidor retorna o \textit{status} de acordo com o sucesso ou não da requisição e possíveis conteúdos também em formato \gls{MIME} caso sejam necessários, encerrando assim a conexão.
+    A transferência de informação acontece através de \textit{sockets} sob o protocolo \gls{TCP/IP}, onde com a arquitetura cliente-servidor, o cliente envia uma requisição ao servidor, com o padrão \gls{MIME} e  localizado através de endereços, como o \gls{URI}, que identifica a informação acessada e \gls{URL}, que determina a localização desta informação, a conexão é completada e o servidor retorna o \textit{status} de acordo com o sucesso ou não da requisição e possíveis conteúdos também em formato \gls{MIME} caso sejam necessários, encerrando assim a conexão.
     
         \subsubsection{HTTPS}
         \label{sec:https}
-        O \gls{HTTPS} é uma derivação do protocolo de comunicação \gls{HTTP} para mensagens seguras, projetado como uma camada de segurança utilizando o protocolo \gls{TLS}. Além de fornecer uma variedade de mecanismos de segurança para clientes e servidores, não são necessárias chaves públicas do lado cliente, suporta criptografia ponta a ponta e torna possível verificar a autenticidade do servidor através de certificados digitais. Seu uso é recomendado em redes inseguras, evitando a clonagem das informações trafegadas que poderia acontecer na ausência de criptografia \cite{HTTPS}. Segundo \cite{usoHTTPS}, em fevereiro de 2019, mais de 58.44\% dos 1 milhões \textit{websites} mais visitados da internet já utilizavam o \gls{HTTPS}.
+        O \gls{HTTPS} é uma derivação do protocolo de comunicação \gls{HTTP} para mensagens seguras, projetado como uma camada de segurança utilizando o protocolo \gls{TLS}. Além de fornecer uma variedade de mecanismos de segurança para clientes e servidores, não são necessárias chaves públicas do lado do cliente, suporta criptografia ponta a ponta e torna possível verificar a autenticidade do servidor através de certificados digitais. Seu uso é recomendado em redes inseguras, evitando a clonagem das informações trafegadas que poderia acontecer na ausência de criptografia \cite{HTTPS}. Segundo \citeonline{usoHTTPS}, em fevereiro de 2019, mais de 58.44\% dos 1 milhões de \textit{websites} mais visitados da Internet já utilizavam o \gls{HTTPS}.
         
         \subsubsection{REST}
         \label{sec:rest}
 
         O \gls{REST} é um estilo de arquitetura para \textit{\gls{WEB} Service},  uma solução padronizada pela \gls{W3C} e \gls{OASIS} que busca fornecer interoperabilidade entre dispositivos e aplicações pela internet utilizando diferentes tipos de linguagens, o que a torna compatível com a maioria das aplicações já existentes \cite{W3C}.
         
-        O envio e recebimento das mensagens é realizada de forma simplificada através dos protocolos \gls{HTTP} ou \gls{HTTPS} utilizando os formatos: \gls{XML}, \gls{JSON} ou \gls{HTML} e métodos de chamada bem definidos: GET, POST, PUT, PATCH e DELETE. Comumente utilizado por empresas no o desenvolvimento de \gls{API} para acesso a informações específicas sobre serviços, aplicações, faturas, etc. Na Figura \ref{fig:figura-rest1} é apresentada uma ideia geral sobre o funcionamento de uma API que utiliza a arquitetura REST para troca dos dados.
+        O envio e recebimento das mensagens é realizada de forma simplificada através dos protocolos \gls{HTTP} ou \gls{HTTPS} utilizando os formatos: \gls{XML}, \gls{JSON} ou \gls{HTML} e métodos de chamada bem definidos: GET, POST, PUT, PATCH e DELETE. Comumente utilizado por empresas no desenvolvimento de \gls{API} para acesso a informações específicas sobre serviços, aplicações, faturas, etc. Na Figura \ref{fig:figura-rest1} é apresentada uma ideia geral sobre o funcionamento de uma API que utiliza a arquitetura REST para troca dos dados.
             
             \begin{figure}[!h]
     		\Caption{\label{fig:figura-rest1} Representação do funcionamento de uma API REST.}
@@ -287,9 +287,9 @@ Nesta seção, são introduzidas tecnologias existentes para supervisão de proc
             
             \item PUT: envia e recebe informações, é utilizado na atualização de "objetos"\: já existentes, na falta do envio de algumas informações necessárias, estas são considerados nulas ou vazias. Assim como o GET, o PUT é idempotente;
             
-            \item PATCH: envia e recebe de informações, similar ao PUT,  é utilizado na atualização de "objetos"\: já existentes, porém, apenas os campos especificados;
+            \item PATCH: envia e recebe informações, similar ao PUT,  é utilizado na atualização de "objetos"\: já existentes, porém, apenas os campos especificados;
 
-            \item DELETE: envia e recebe de informações, é utilizado na exclusão de "objetos", podendo ser imediato ou não.
+            \item DELETE: envia e recebe informações, é utilizado na exclusão de "objetos", podendo ser imediato ou não.
         \end{alineascomponto}
         
        

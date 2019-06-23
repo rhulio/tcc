@@ -1,14 +1,14 @@
 \chapter{Resultados}
 \label{chap:resultados}
 
-Para exemplificação do uso do sistema proposto na prática, foram desenvolvidos alguns projetos de exemplo. Devido a dificuldade na implementação de uma planta completa com dispositivos normalmente encontrados na Indústria, foram utilizados microcontroladores para gerar as informações disponíveis nas seções a seguir que trarão os mesmos efeitos caso fossem utilizados dispositivos industriais com conexão à internet.
+Para exemplificação do uso do sistema proposto na prática, foram desenvolvidos alguns projetos de exemplo. Devido a complexidade e tempo necessários para a implementação de uma planta completa com dispositivos normalmente encontrados na Indústria, foram utilizados microcontroladores para gerar as informações disponíveis nas seções a seguir que trarão os mesmos efeitos caso fossem utilizados dispositivos industriais com conexão à internet.
 
 \section{Temperatura e Umidade}
 \label{sec:temperatura-umidade}
 
 Este exemplo tem por objetivo a utilização de variáveis de ambiente em simulação de um processo industrial que fosse necessário o acompanhamento de informações de temperatura e umidade. Foram utilizados os seguintes materiais: (i) Placa de desenvolvimento com microcontrolador ESP8266 da fabricante \textit{espressif}, apresentado na Figura \ref{fig:figura-nodemcu} e (ii) Módulo com sensor de temperatura e umidade DHT11 da fabricante chinesa \textit{Aosong Electronics Co. Ltd}, apresentado na Figura \ref{fig:figura-dht11}.
 
-O código para este exemplo, anexo \ref{an:anexo-temperatura-umidade}, foi desenvolvido através da linguagem de programação C++ adaptada ao \textit{Arduino} e os dados são transmitidos ao RSCADA utilizando o protocolo \gls{MQTT}, devido ser a forma de comunicação mais leve para um pequeno dispositivo como o microcontrolador utilizado.
+O código para este exemplo, Apêndice \ref{ap:apendice-temperatura-umidade}, foi desenvolvido através da linguagem de programação C++ adaptada ao \textit{Arduino} e os dados são transmitidos ao RSCADA utilizando o protocolo \gls{MQTT}, devido ser a forma de comunicação mais leve para um pequeno dispositivo como o microcontrolador utilizado.
 
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-nodemcu} Placa de desenvolvimento com microcontrolador ESP8266 da fabricante \textit{espressif}.}
@@ -33,7 +33,7 @@ O código para este exemplo, anexo \ref{an:anexo-temperatura-umidade}, foi desen
     	
 \newpage
     	
-Inicialmente foram configuradas as variáveis utilizadas pelo programa do microcontrolador, sendo elas: (i) Latência, representando o tempo de atraso entre o envio da informação e a resposta do servidor, (ii) Temperatura e (iii) Umidade, ambas do tipo numérica já que representarão números inteiros ou irracionais. Na Figura \ref{fig:figura-temperatura-variaveis} é apresentada uma captura da tela de gerenciamento de variáveis, com o exemplo já em funcionamento e um histórico com mais de 4 milhões de pontos de informação em cada variável.
+Inicialmente foram configuradas as variáveis utilizadas pelo programa do microcontrolador, sendo elas: (i) Latência, representando o tempo de atraso entre o envio da informação e a resposta do servidor, (ii) Temperatura e (iii) Umidade, ambas do tipo numérica já que representarão números inteiros ou irracionais. Na Figura \ref{fig:figura-temperatura-variaveis}, é apresentada uma captura da tela de gerenciamento de variáveis, com o exemplo já em funcionamento e um histórico com mais de 4 milhões de pontos de informação em cada variável.
 
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-temperatura-variaveis} Variáveis utilizadas para o projeto.}
@@ -45,7 +45,7 @@ Inicialmente foram configuradas as variáveis utilizadas pelo programa do microc
 		}	
     	\end{figure}
     	
-Para este exemplo foram utilizados um total de 6 objetos, sendo os 3 primeiros do tipo Últimor Valor para demonstrar os valores instantâneos recebidos pelo microcontrolador e suas variações, representados na Figura \ref{fig:figura-temperatura-instataneos} e outros 3 do tipo gráfico, para acompanhar a variação das informações através do tempo em uma janela de tempo configurada com 30 minutos de período. As Figuras \ref{fig:figura-temperatura-grafico} e  \ref{fig:figura-temperatura-umidade} representam os objetos: temperatura e umidade, do tipo Gráfico de Área e a Figura \ref{fig:figura-temperatura-latencia}, a latência da conexão, do tipo Gráfico de Linha.
+Para este exemplo foram utilizados um total de 6 objetos, sendo os 3 primeiros do tipo Último Valor para demonstrar os valores instantâneos recebidos pelo microcontrolador e suas variações, representados na Figura \ref{fig:figura-temperatura-instataneos} e outros 3 do tipo gráfico, para acompanhar a variação das informações através do tempo em uma janela de tempo configurada com 30 minutos de período. As Figuras \ref{fig:figura-temperatura-grafico} e  \ref{fig:figura-temperatura-umidade} representam os objetos: temperatura e umidade, do tipo Gráfico de Área e a Figura \ref{fig:figura-temperatura-latencia}, a latência da conexão, do tipo Gráfico de Linha.
 
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-temperatura-instataneos} Últimas informações enviadas.}
@@ -57,7 +57,7 @@ Para este exemplo foram utilizados um total de 6 objetos, sendo os 3 primeiros d
 		}	
     	\end{figure}
     	
-Os objetos do tipo Último Valor, na Figura \ref{fig:figura-temperatura-instataneos}, foram utilizados para representar os valores instantâneos das variáveis principais do processo, neles, são disponibilizadas as informações sobre há quanto tempo foi enviado o último dado e qual sua variação, em ambos os casos ocorre um alerta caso a temperatura ultrapasse um valor pré-definido ou não tenha a inserção de novos dados durante um dado tempo.
+Os objetos do tipo Último Valor, na Figura \ref{fig:figura-temperatura-instataneos}, foram utilizados para representar os valores instantâneos das variáveis principais do processo, neles, são disponibilizadas informações como: (i)  há quanto tempo foi enviado o último dado e (ii) qual sua variação, em ambos os casos ocorre um alerta caso a temperatura ultrapasse um valor pré-definido ou não tenha a inserção de novos dados durante um dado tempo.
 
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-temperatura-grafico} Gráfico de área com os últimos 30 minutos de temperatura registrada.}
@@ -69,7 +69,7 @@ Os objetos do tipo Último Valor, na Figura \ref{fig:figura-temperatura-instatan
 		}	
     	\end{figure}
     	
-Para o período de captura utilizado neste exemplo, Figura \ref{fig:figura-temperatura-grafico}, houve um intervalo de temperatura entre 30,3 e 30,5ºC, onde a precisão da medição do modelo de sensor utilizado é na casa de 0,1ºC. Devido um parâmetro configurado no gráfico, as amplitudes de temperatura não são demonstradas desde o ponto zero, mas sim, somente entre a temperatura mínima e a máxima, tornando fácil a identificação destes extremos na janela de tempo escolhida. O Gráfico de umidade, representado na Figura \ref{fig:figura-temperatura-umidade}, foi parametrizado seguindo as mesmas observações feitas anteriormente, revelando uma oscilação no mesmo período de tempo da figura anterior, entre 71 e 74\% de umidade relativa do ar com uma precisão do sensor na casa de 1\%.
+Para o período de captura utilizado neste exemplo, Figura \ref{fig:figura-temperatura-grafico}, houve um intervalo de temperatura entre 30,3 e 30,5ºC, onde a exatidão da medição do modelo de sensor utilizado é na casa de 0,1ºC. Devido um parâmetro configurado no gráfico, as amplitudes de temperatura não são demonstradas desde o ponto zero, mas sim, somente entre a temperatura mínima e a máxima, tornando fácil a identificação destes extremos na janela de tempo escolhida. O Gráfico de umidade, representado na Figura \ref{fig:figura-temperatura-umidade}, foi parametrizado seguindo as mesmas observações feitas anteriormente, revelando uma oscilação no mesmo período de tempo que o apresentado na Figura \ref{fig:figura-temperatura-grafico}, entre 71 e 74\% de umidade relativa do ar com uma precisão do sensor na casa de 1\%.
 
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-temperatura-umidade} Gráfico de área com os últimos 30 minutos de umidade registrada.}
@@ -98,7 +98,7 @@ O acompanhamento da latência da conexão entre o microcontrolador e o servidor 
 
 O objetivo deste segundo exemplo é acompanhar os níveis de qualidade de sinal, como: potência do sinal recebido e latência da conexão de uma rede  \textit{Wi-Fi} doméstica e um teste com o botão liga/desliga para o controle do status do monitoramento. Para este projeto foi utilizada uma placa de desenvolvimento com microcontrolador ESP32 da fabricante \textit{espressif}, demonstrada na Figura \ref{fig:figura-esp32}, que já possui integrado de fábrica o modem \textit{Wi-Fi}.
 
-O código para este exemplo, anexo \ref{an:anexo-wifi}, também foi desenvolvido através da linguagem de programação C++ adaptada ao \textit{Arduino} e os dados são transmitidos ao RSCADA utilizando o protocolo \gls{MQTT}, assim como o exemplo anterior, devido ser a forma de comunicação mais leve para um pequeno dispositivo como o microcontrolador utilizado.
+O código para este exemplo, Apêndice \ref{ap:apendice-wifi}, também foi desenvolvido através da linguagem de programação C++ adaptada ao \textit{Arduino} e os dados são transmitidos ao RSCADA utilizando o protocolo \gls{MQTT}, assim como o exemplo anterior, devido ser a forma de comunicação mais leve para um pequeno dispositivo como o microcontrolador utilizado.
 
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-esp32} Placa de desenvolvimento com microcontrolador ESP32 da fabricante \textit{espressif}.}
@@ -123,7 +123,7 @@ Inicialmente foram configuradas as variáveis utilizadas pelo programa do microc
     	\end{figure}
 
 
-Foram utilizados um total de 5 objetos, sendo o primeiro, uma chave para ligar ou desligar o monitoramento do exemplo, duas do tipo Último Valor para demonstrar os valores instantâneos recebidos pelo microcontrolador e suas variações, representados na Figura \ref{fig:figura-wifi-instataneos} e outros 2 do tipo gráfico, para acompanhar a variação das informações através do tempo em uma janela de tempo configurada com 10 minutos de período. 
+Foram utilizados um total de 5 Objetos, sendo o primeiro, uma chave para ligar ou desligar o monitoramento do exemplo, duas do tipo Último Valor para demonstrar os valores instantâneos recebidos pelo microcontrolador e suas variações, representados na Figura \ref{fig:figura-wifi-instataneos} e outros 2 do tipo gráfico, para acompanhar a variação das informações através do tempo em uma janela de tempo configurada para visualização dos últimos 10 minutos de envio. 
 
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-wifi-instataneos} Botão para ação no processo além de últimas informações enviadas.}
@@ -136,7 +136,7 @@ Foram utilizados um total de 5 objetos, sendo o primeiro, uma chave para ligar o
     	\end{figure}
 \newpage
 
-Para o período de captura utilizado neste exemplo, na Figura \ref{fig:figura-wifi-sinal}, houve uma variação na potência do sinal recebido pelo microcontrolador com um intervalo entre -55 dBm e -38 dBm. O Gráfico da latência da conexão, representado na Figura \ref{fig:figura-wifi-latencia}, assim como no exemplo da seção \ref{sec:temperatura-umidade}, houve um aumento na latência entre 19h52 e 19h54 do dia em que a captura foi feita, provavelmente devido ao pico de demanda do provedor neste horário já que imediatamente na figura anterior podemos constatar que não houveram variações bruscas no sinal da rede interna.
+Para o período de captura utilizado neste exemplo, na Figura \ref{fig:figura-wifi-sinal}, houve uma variação na potência do sinal recebido pelo microcontrolador com um intervalo entre -55 dBm e -38 dBm. O Gráfico da latência da conexão, representado na Figura \ref{fig:figura-wifi-latencia}, assim como no exemplo da Seção \ref{sec:temperatura-umidade}, é apresentado um aumento nos valores obtidos para a latência entre 19h52 e 19h54 do dia em que a captura foi feita, devido ao pico de demanda do provedor neste horário, na Figura \ref{fig:figura-wifi-sinal}, o sinal da rede interna não sofre variações no mesmo horário.
     	
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-wifi-sinal} Gráfico de linhas com os últimos 30 minutos de qualidade de sinal registrada.}
@@ -162,7 +162,7 @@ Para o período de captura utilizado neste exemplo, na Figura \ref{fig:figura-wi
 
 \section{Incubadora Neonatal}
 \label{sec:incubadora-neonatal}
-Com o objetivo de exemplificar uma possível integração entre o sistema \gls{SCADA} proposto e outros sistemas já existentes no local em que seja utilizado, foi desenvolvido um código utilizando o \textit{software} MATLAB, da empresa MathWorks, disponível no anexo \ref{an:anexo-incubadora-neonatal}, para servir como intermediário entre sensores disponibilizados dentro de uma incubadora neonatal e a interface de gerenciamento, similarmente ao que aconteceria caso o cliente optasse pelo uso de um servidor \gls{OPC} local. 
+Com o objetivo de exemplificar uma possível integração entre o sistema \gls{SCADA} proposto e outros sistemas já existentes no local em que seja utilizado, foi desenvolvido um código utilizando o \textit{software} MATLAB, da empresa MathWorks, disponível no Apêndice \ref{ap:apendice-incubadora-neonatal}, para servir como intermediário entre sensores disponibilizados dentro de uma incubadora neonatal e a interface de gerenciamento, similarmente ao que aconteceria caso o cliente optasse pelo uso de um servidor \gls{OPC} local. 
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-incubadora-ela} Incubadora utilizada no exemplo.}
 		%\centering
@@ -173,7 +173,7 @@ Com o objetivo de exemplificar uma possível integração entre o sistema \gls{S
 		}	
     	\end{figure}
     	
-Para aquisição dos dados, utilizou-se a incubadora neonatal presente no Laboratório de Controle, Automação e Telecomunicações da Universidade Federal do Piauí utilizada em projetos como o \citeonline{incubadoraartigo,incubadoraartigo2}, representada na Figura \ref{fig:figura-incubadora-ela}. Os sensores são dispostos dentro da cúpula, conforme a Figura \ref{fig:figura-incubadora-pontos} seguindo a norma NBR IEC 60601-2-19/2014. Neste exemplo, foram capturadas informações de temperatura através de sensores localizados: (i) no ponto M, que representam a média da temperatura interna na cúpula, (ii) próximo a resistência interna, responsável pelo aquecimento da incubadora através da passagem de corrente elétrica  e, (iii) posicionado para medição da temperatura externa.
+Para aquisição dos dados, utilizou-se a incubadora neonatal presente no Laboratório de Controle, Automação e Telecomunicações da Universidade Federal do Piauí utilizada em projetos como \citeonline{incubadoraartigo,incubadoraartigo2}, representada na Figura \ref{fig:figura-incubadora-ela}. Os sensores são dispostos dentro da cúpula, conforme a Figura \ref{fig:figura-incubadora-pontos} seguindo a norma NBR IEC 60601-2-19/2014. Neste exemplo, foram capturadas informações de temperatura através de sensores localizados: (i) no ponto M, que representam a média da temperatura interna na cúpula, (ii) próximo a resistência interna, responsável pelo aquecimento da incubadora através da passagem de corrente elétrica  e, (iii) posicionado para medição da temperatura externa.
     	
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-incubadora-pontos} Pontos em que os sensores são posicionados.}
@@ -266,7 +266,7 @@ Internamente, na cúpula, nos dados obtidos representados pela Figura \ref{fig:f
 
 \section{Demanda de Roteadores}
 \label{sec:demanda-roteadores}
-Para exemplificar a aquisição de dados através do protocolo \gls{HTTP} e uma possível integração entre o sistema \gls{SCADA} proposto e outros sistemas já existentes no local em que seja utilizado, assim como o exemplo anterior, foi desenvolvido um código utilizando a linguagem de programação PHP, disponível no anexo \ref{an:anexo-roteadores}, para o monitoramento de 11 roteadores dispostos no Entre Rios Hotel na cidade de Picos - Piauí. A ideia deste exemplo é ter um histórico de demanda de hóspedes conectados e a máxima largura de banda utilizada em cada um dos roteadores num período de 24 horas, que se situam em locais distintos. Com isso, é possível a reorganização destes aparelhos para um melhor atendimento dos clientes, considerando que haja uma maior demanda na maior parte do tempo em um zona específica do hotel.
+Para exemplificar a aquisição de dados através do protocolo \gls{HTTP} e uma possível integração entre o sistema \gls{SCADA} proposto e outros sistemas já existentes no local em que seja utilizado, assim como o exemplo anterior, foi desenvolvido um código utilizando a linguagem de programação PHP, disponível no Apêndice \ref{ap:apendice-roteadores}, para o monitoramento de 11 roteadores dispostos no Entre Rios Hotel na cidade de Picos - Piauí. A ideia deste exemplo é ter um histórico de demanda de hóspedes conectados e a máxima largura de banda utilizada em cada um dos roteadores num período de 24 horas, que se situam em locais distintos. Com isso, é possível a reorganização destes aparelhos para um melhor atendimento dos clientes, considerando que haja uma maior demanda na maior parte do tempo em um zona específica do hotel.
 
 Inicialmente foram configuradas as variáveis utilizadas pelo programa, sendo elas:
 
@@ -336,65 +336,7 @@ A mesma análise pode ser realizada para os arredores do apartamento 107, na Fig
 		}	
     	\end{figure}
     	
-\section{Comparação com o Eclipse SCADA}
-\label{sec:comparacao-eclipse}
-
-Esta seção apresenta uma leve comparação de como é a criação de um novo projeto em um dos \textit{softwares} disponíveis no mercado, como os citados anteriormente, o trabalho de  \citeonline{Stenio}, foi desenvolvido no \textit{software} Elipse SCADA (seção \ref{sec:elipse}), para o monitoramento e controle de um motor trifásico de indução. Utilizando dispositivos como: (i) \gls{CLP} da fabricante WEG, modelo TPW-03-40R, (ii) módulo de expansão WEG TPW03-8AD, (iii) módulo de expansão WEG TPW03-2DA, (iv) inversor de frequência WEG CFW-11, (v) motor trifásico de indução e (vi) fonte de bancada, o autor implementa acionamentos, como: aceleração, desaceleração, controle de velocidade e outros, no motor de indução trifásico através do inversor comandado pelo \gls{CLP}.
-
-Para implementação do projeto, o autor utiliza uma rede Modbus (seção \ref{sec:modbus-serial}) para a comunicação entre os dispositivos e o sistema \gls{SCADA}, configurados através de driver e parâmetros de configuração fornecidos pela Modicon Inc. Após a comunicação concluída, são criadas no projeto, \textit{tags} de entrada e saída, similarmente às variáveis do sistema proposto. Na Figura \ref{fig:figura-stenio-geral} é apresentada a tela do módulo \textit{Organizer} ao qual o autor parametriza todas as \textit{tags}, divididas em dois grupos: Entradas e Saídas, à serem adquiridas ou disponibilizadas através do rede Modbus.
-
-        \begin{figure}[!h]
-		\Caption{\label{fig:figura-stenio-geral} Parametrização das tags.}
-		%\centering
-		\UFCfig{}{
-			\fbox{\includegraphics[width=12cm]{figuras/stenio-geral.png}}
-		}{
-			\Fonte{\cite{Stenio}}
-		}	
-    	\end{figure}
-    	
-No primeiro grupo, são adicionadas as variáveis de entrada relacionadas ao acionamento, enquanto o segundo, são as saídas diretas para as bobinas de contato. Os espaços N1, N2, N3 e N4 são configurados da seguinte forma: (i) N1: endereço do escravo, (ii) N2: operando relativo ao tag, (iii) N3: não é utilizado, permanecendo valor nulo e (iv) N4: o endereço Modbus dos registradores de entrada, bobinas ou conversão analógico-digital.
-\newpage
-Outras funções são disponibilizadas para configuração, como: Alarmes, Relatórios e outras, mas que não são abordadas no trabalho em questão. Os endereços Modbus para configuração do item N4 são disponíveis pela tabela de endereços do equipamento, que quando digitada a variável é retornada o endereço desejado. Na Figura \ref{fig:figura-stenio-endereco-modbus} é representado este procedimento.
-    	
-        \begin{figure}[!h]
-		\Caption{\label{fig:figura-stenio-endereco-modbus} Endereços Modbus dos dispositivos utilizados.}
-		%\centering
-		\UFCfig{}{
-			\fbox{\includegraphics[width=9cm]{figuras/stenio-endereco-modbus.png}}
-		}{
-			\Fonte{\cite{Stenio}}
-		}	
-    	\end{figure}
-
- Após configuradas todas as \textit{tags} com seus respectivos endereços, é possível a organização da \gls{IHM} disponível no \textit{software}. Em seu trabalho, o autor utiliza 3 pares de botões de ação, sendo eles: (i) habilita geral, (ii) sentido de giro e (iii) gira/pára, também, 3 telas de informações, sendo elas: (i) tensão da fonte de bancada, (ii) velocidade do motor e a (iii) situação do eixo. Na Figura \ref{fig:figura-stenio-tela-inicial} é apresentada a \gls{IHM} finalizada do trabalho.
-    	
-        \begin{figure}[!h]
-		\Caption{\label{fig:figura-stenio-tela-inicial} Tela de supervisão do processo.}
-		%\centering
-		\UFCfig{}{
-			\fbox{\includegraphics[width=15cm]{figuras/stenio-tela-inicial.png}}
-		}{
-			\Fonte{\cite{Stenio}}
-		}	
-    	\end{figure}
-    	
-        \begin{figure}[!h]
-		\Caption{\label{fig:figura-stenio-velocidade} Curva de Velocidade vs Tensão.}
-		%\centering
-		\UFCfig{}{
-			\fbox{\includegraphics[width=13cm]{figuras/stenio-velocidade.png}}
-		}{
-			\Fonte{\cite{Stenio}}
-		}	
-    	\end{figure}
-    
-    	
-Através do sistema \gls{SCADA}, \citeonline{Stenio} registra diferentes dinâmicas do processo montado. Como na Figura \ref{fig:figura-stenio-velocidade}, em que a velocidade do motor é variada de acordo com a entrada fornecida pela fonte de bancada ao conversor analógico-digital do \gls{CLP}. A curva obtida tem comportamento linear, atingindo a velocidade máxima do motor,  1800 rpm, quando atingida a tensão máxima de referência da fonte, 10 volts. Outras observações feitas pelo autor são o tempo de aceleração e desaceleração do motor, que obtém valores próximos a 12 segundos.
-
-O processo de criação de um projeto nesta seção é similar ao RSCADA, são configuradas as variáveis utilizadas pelo processo em que, também dispõem de diferentes tipos, assim como diversas formas de representação gráfica das informações disponíveis ou botões de ações. A forma de aquisição de dados é distinta entre eles, no \textit{software} Elipse \gls{SCADA} existe uma conexão física entre o dispositivo do qual são adquiridas as informações ou atuado e, o servidor onde é executado o sistema. É utilizado um \textit{driver} de comunicação para obtenção direta dos dados no dispositivo, enquanto que no RSCADA, os dados são adquiridos essencialmente através da internet, necessitando que os dispositivos conectados suportem pelo um dos dois protocolos utilizados, ou, haja um intermediário capaz de servir como \textit{driver} de comunicação entre o dispositivo e o servidor. Apesar disso, a configuração do sistema em relação à aquisição de dados é similar, no primeiro, é realizada através dos endereços Modbus, configurados em cada variável, enquanto que no segundo, com o uso de um único \textit{token} e o conceito de chave/valor, é possível o envio das informações de forma intuitiva apenas através de um ou mais nomes de variável. Apesar de terem em comum as funcionalidades nativas de um sistema \gls{SCADA}, o RSCADA tem a vantagem de suportar múltiplos usuários e projetos, de forma isolada, utilizando a mesma estrutura de servidores, já que é concebido em nuvem. Enquanto o primeiro \textit{software} é necessária uma instalação para cada processo utilizado, apenas em um sistema operacional compatível ou possíveis complementos demandados por ele, o RSCADA é disponibilizado através do navegador já em sua forma final de uso, sendo necessárias apenas pequenas configurações como a criação de um novo projeto para iniciar o uso.
-
 \section{Síntese}
 \label{sec:sintese-resultados}
 
-Neste Capítulo, foram demonstrados exemplos em diferentes cenários e possibilidades de integração do RSCADA com sistemas proprietários. Foi comparado um \textit{software} disponível no mercado com proposta parecida, suas vantagens e desvantagens em relação à ele. O capítulo seguinte oferece uma discussão sobre os objetivos atingidos e futuros trabalhos.
+Neste Capítulo, foram demonstrados exemplos de utilização do RSCADA em diferentes cenários e possibilidades de integração com outros sistemas proprietários. O capítulo seguinte oferece uma discussão sobre os objetivos atingidos, futuros trabalhos e a possibilidade de uso do sistema desenvolvido como uma plataforma estudantil.

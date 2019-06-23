@@ -3,16 +3,16 @@
 
 Como exposto no Capítulo \ref{chap:dispositivos-protocolos}, são necessários vários protocolos ou adaptações para que a comunicação de um processo consiga atingir interoperabilidade entre o servidor e todos os dispositivos. Os sistemas \gls{SCADA} demonstrados no Capítulo \ref{chap:scada} utilizados para receber estas informações do servidor \gls{OPC} local ou diretamente destes dispositivos e organizá-las em um banco de dados, é a forma predominante na indústria e a forma mais confiável hoje. Todos os \textit{softwares} disponíveis para utilização que foram citados têm em comum seu modo de funcionamento, onde é instalado em uma máquina próxima e fisicamente ligada ao processo, que por sua vez mantém todos os serviços necessários para o funcionamento integrado dos módulos que o compõe. Alguns dispõem de integração com o protocolo \gls{MQTT} e interfaceamento \gls{WEB}, mas não são nativamente desenvolvidos para o funcionamento remoto.
 
-Este trabalho propõe o desenvolvimento de um sistema \gls{SCADA} \gls{WEB} em que sua distribuição não seja mais como os sistemas \gls{SCADA} citados, na forma de um Produto como Serviço onde o cliente paga por um \textit{software} desenvolvido e futuras atualizações que venham ocorrer mas fornece toda a estrutura necessária para o funcionamento dele, e sim \textit{Software} como Serviço, do inglês, \gls{SaaS}, em que a própria plataforma fornece os recursos necessários para a disponibilização de todos os módulos do sistema, sejam eles: servidores, segurança e atualizações do próprio \textit{software}.
+Este trabalho propõe o desenvolvimento de um sistema \gls{SCADA} \gls{WEB} em que sua distribuição seja \textit{Software} como Serviço, do inglês, \gls{SaaS}, em que a própria plataforma fornece os recursos necessários para a disponibilização de todos os módulos do sistema, sejam eles: servidores, segurança e atualizações do próprio \textit{software} e não mais como os sistemas \gls{SCADA} citados, na forma de um Produto como Serviço onde o cliente paga por um \textit{software} desenvolvido e futuras atualizações que venham ocorrer mas fornece toda a estrutura necessária para o funcionamento dele.
 
-Com a premissa de que toda a estrutura esteja disponível através da internet, além de todas as funcionalidades de um sistema \gls{SCADA} convencional, várias vantagens podem ser listadas como:
+Com a premissa de que toda a estrutura esteja disponível através da internet, além de outras funcionalidades presentes em um sistema \gls{SCADA} convencional, várias vantagens podem ser listadas como:
 
 \begin{alineascomponto}
     \item a capacitação profissional que antes seria necessária para a operação dessa estrutura é extremamente simplificada ao manuseio da interface;
     \item o gerenciamento é feito exclusivamente através do navegador podendo ser utilizado por todas as plataformas existentes na empresa, desde computadores, à \textit{smartphones} e \textit{tablets};
-    \item com o uso da computação em nuvem, é possível a escalabilidade de recursos, sejam eles armazenamento ou processamento e tarefas simples que demandariam mais servidores ou a parada da aquisição de dados, podem agora ser feitas diretamente pela plataforma sem haver prejuízos ao processo;
+    \item com o uso da computação em nuvem, é possível a escalabilidade de recursos, sejam eles armazenamento ou processamento e tarefas simples que demandariam mais servidores ou a parada da aquisição de dados, podendo agora serem feitas diretamente pela plataforma sem haver prejuízos ao processo;
     \item o mesmo sistema pode gerenciar múltiplos processos utilizando a mesma estrutura, podendo ser ou não apresentados na mesma interface;
-    \item envio e recebimento de dados do processo podem ser feitos diretamente pelos dispositivos citados no Capítulo \ref{chap:dispositivos-protocolos} para a plataforma remota, desde que estejam disponíveis estas funcionalidades;
+    \item envio e recebimento de dados do processo podendo ser feitos diretamente pelos dispositivos citados no Capítulo \ref{chap:dispositivos-protocolos} para a plataforma remota, desde que estejam disponíveis estas funcionalidades;
     \item com a possibilidade de uso de \gls{API} \gls{HTTP}, outros sistemas utilizados pela empresa podem trabalhar diretamente com o sistema \gls{SCADA}, obtendo informações ou atuando sobre o processo, se necessário e desejado.
 \end{alineascomponto}
 
@@ -85,7 +85,7 @@ O módulo mais importante para o funcionamento deste sistema é a aquisição de
         \label{sec:aquisicao-http}
         O protocolo \gls{HTTP} é utilizado para a construção de uma \gls{API} baseada em \gls{REST} que possua a maior compatibilidade possível entre os métodos de chamada, para que até dispositivos simples possam trocar informações mesmo utilizando métodos de chamada triviais. Serão aceitos aqui, os três formatos de conteúdo descritos na seção \ref{sec:formatos-de-conteudo} devido o suporte nativo deste protocolo.
         
-        Basicamente o processo de envio ou gerenciamento das informações contidas na plataforma, serão organizadas em 4 etapas: (i) Validação das Informações, (ii) Autenticação, (iii) Identificação das Informações, (iv) Banco de Dados, que serão detalhadas individualmente adiante. Na Figura \ref{fig:figura-http-geral} é apresentado um diagrama representando a sequência lógica destas quando iniciada a requisição.
+        Basicamente o processo de envio ou gerenciamento das informações contidas na plataforma, serão organizadas em 4 etapas: (i) Validação das Informações, (ii) Autenticação, (iii) Identificação das Informações, (iv) Banco de Dados, que serão detalhadas individualmente adiante. Na Figura \ref{fig:figura-http-geral}, é apresentado um diagrama representando a sequência lógica destas quando iniciada a requisição.
         
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-http-geral} Diagrama das etapas do servidor para manipulação de dados.}
@@ -107,9 +107,9 @@ O módulo mais importante para o funcionamento deste sistema é a aquisição de
 		}	
     	\end{figure}
     	
-    	 Através de parâmetros configurados na \gls{URL} da \gls{API} da plataforma e cabeçalhos da requisição, o módulo identifica o método de chamada e qual comando o utilizador deseja. Se o comando enviado for reconhecido pelo módulo e exista alguma informação válida à ser enviada, é dado o direcionamento à etapa seguinte da Autenticação, caso contrário, a requisição é imediatamente encerrada. Na Figura \ref{fig:figura-http-validacao} é apresentado um diagrama com detalhes da etapa de validação das informações.
+    	 Através de parâmetros configurados na \gls{URL} da \gls{API} da plataforma e cabeçalhos da requisição, o módulo identifica o método de chamada e qual comando o utilizador deseja. Se o comando enviado for reconhecido pelo módulo e exista alguma informação válida a ser enviada, é dado o direcionamento à etapa seguinte, Autenticação, caso contrário, a requisição é imediatamente encerrada. Na Figura \ref{fig:figura-http-validacao}, é apresentado um diagrama com detalhes da etapa de validação das informações.
 \newpage
-    	 Posteriormente, dentre os parâmetros enviados é feita uma verificação do \textit{token}, um código que funciona como uma senha e, caso seja válido e esteja autorizado ao uso da \gls{API}, o módulo verifica seu limite de envios no caso de novas inserções de informações e segue à próxima etapa caso esteja apto, encerrando a requisição caso contrário. Na Figura \ref{fig:figura-http-autenticacao} é apresentado um diagrama detalhando a lógica da autenticação.
+    	 Posteriormente, dentre os parâmetros enviados é feita uma verificação do \textit{token}, um código que funciona como uma senha e, caso seja válido e esteja autorizado ao uso da \gls{API}, o módulo verifica seu limite de envios no caso de novas inserções de informações e segue à próxima etapa caso esteja apto, encerrando a requisição caso contrário. Na Figura \ref{fig:figura-http-autenticacao}, é apresentado um diagrama detalhando a lógica da autenticação.
     	 
     	\begin{figure}[!h]
 		\Caption{\label{fig:figura-http-autenticacao} Diagrama de autenticação do usuário.}
@@ -121,7 +121,7 @@ O módulo mais importante para o funcionamento deste sistema é a aquisição de
 		}	
     	\end{figure}
     	
-    	 Na etapa de Identificação do tipo de informação enviada, basicamente são listadas todas as variáveis que se deseja inserir ou modificar no banco de dados e a categorização delas, sejam: númericas, binárias ou texto. Na Figura \ref{fig:figura-http-identificacao} é detalhada a identificação das informações provenientes da requisição.
+    	 Na etapa de Identificação do tipo de informação enviada, basicamente são listadas todas as variáveis que se deseja inserir ou modificar no banco de dados e a categorização delas, sejam: númericas, binárias ou texto. Na Figura \ref{fig:figura-http-identificacao}, é detalhada a identificação das informações provenientes da requisição.
     	
     	\begin{figure}[!h]
 		\Caption{\label{fig:figura-http-identificacao} Diagrama sobre a identificação do tipo das informações.}
@@ -133,7 +133,7 @@ O módulo mais importante para o funcionamento deste sistema é a aquisição de
 		}	
     	\end{figure}
     	
-    	Por último, são verificadas uma a uma se o nome das variáveis já estão cadastradas no banco de dados e é dado o direcionamento para elas, repetindo a etapa de identificação para cada informação enviada, encerrando a requisição após o tratamento de todas elas. Na Figura \ref{fig:figura-http-banco} são apresentados detalhes sobre a etapa do banco de dados.
+    	Por último, são verificadas uma a uma se o nome das variáveis já estão cadastradas no banco de dados e é dado o direcionamento para elas, repetindo a etapa de identificação para cada informação enviada, encerrando a requisição após o tratamento de todas elas. Na Figura \ref{fig:figura-http-banco}, são apresentados detalhes sobre a etapa do banco de dados.
     	
     	\begin{figure}[!h]
 		\Caption{\label{fig:figura-http-banco} Diagrama da etapa de banco de dados.}
@@ -149,7 +149,7 @@ O módulo mais importante para o funcionamento deste sistema é a aquisição de
         \label{sec:aquisicao-mqtt}
         O protocolo \gls{MQTT} é utilizado para o envio e recebimento de informações de dispositivos que tenham restrição de largura de banda ou que tenham suporte nativo à sua utilização, devido sua facilidade de uso. Se faz necessária uma aplicação \textit{broker} para o funcionamento deste serviço e, devido ser um projeto de código aberto, foi escolhido o \textit{software} VerneMQ para esta finalidade.
         
-        O projeto VerneMQ foi desenvolvido para ser distribuído, ou seja, há a possibilidade de escalabilidade vertical (quando se inclui mais servidores para a manutenção do serviço) e horizontal (quando se aumenta os recursos de um único servidor). Além disto, traz funcionalidades como: autenticação, criptografia, níveis de serviço, envio de mensagens \textit{offline}, balanceamento de recursos, entre outros \cite{VerneMQ}. Na Figura \ref{fig:figura-mqtt-servico} é apresentado o logotipo do serviço utilizado e as principais plataformas suportadas.
+        O projeto VerneMQ foi desenvolvido para ser distribuído, ou seja, há a possibilidade de escalabilidade vertical (quando se inclui mais servidores para a manutenção do serviço) e horizontal (quando se aumenta os recursos de um único servidor). Além disto, traz funcionalidades como: autenticação, criptografia, níveis de serviço, envio de mensagens \textit{offline}, balanceamento de recursos, entre outros \cite{VerneMQ}. Na Figura \ref{fig:figura-mqtt-servico}, é apresentado o logotipo do serviço utilizado e as principais plataformas suportadas.
         
         \begin{figure}[!h]
 		\Caption{\label{fig:figura-mqtt-servico} Projeto utilizado para manter o serviço do MQTT.}
@@ -161,7 +161,7 @@ O módulo mais importante para o funcionamento deste sistema é a aquisição de
 		}	
     	\end{figure}
     	
-    	Conforme explicado na seção \ref{sec:mqtt}, o MQTT recebe e envia informações através de tópicos e, no caso desta plataforma, para o envio de informações, são considerados: tópico como o \textit{token} do usuário e sub-tópico como a variável cadastrada no projeto em que se deseja inserir no banco de dados, simplificando portanto a autenticação deste serviço e tornando similar ao uso da \gls{API} \gls{HTTP}. O módulo de aquisição de dados para o MQTT funciona como um subscritor neste serviço, capturando as informações enviadas pelo usuário no \textit{broker} e inserindo-as no banco de dados caso sejam válidas, o retorno de informação é dado pelo mesmo canal de envio. Os níveis de qualidade de serviço para a entrega das mensagens podem ser utilizados à critério de projeto pelo usuário.
+    	Conforme explicado na Seção \ref{sec:mqtt}, o MQTT recebe e envia informações através de tópicos e, no caso desta plataforma, para o envio de informações, são considerados: tópico como o \textit{token} do usuário e sub-tópico como a variável cadastrada no projeto em que se deseja inserir no banco de dados, simplificando portanto a autenticação deste serviço e tornando similar ao uso da \gls{API} \gls{HTTP}. O módulo de aquisição de dados para o MQTT funciona como um subscritor neste serviço, capturando as informações enviadas pelo usuário no \textit{broker} e inserindo-as no banco de dados caso sejam válidas, o retorno de informação é dado pelo mesmo canal de envio. Os níveis de qualidade de serviço para a entrega das mensagens podem ser utilizados à critério de projeto pelo usuário.
 
 \section{Segurança}
     \label{sec:seguranca}
@@ -169,7 +169,7 @@ O módulo mais importante para o funcionamento deste sistema é a aquisição de
         
         \subsection{Criptografia}
         \label{sec:criptografia}
-        Por se tratar de dados críticos e de potencial interesse comercial do cliente, optou-se pela implementação de criptografia ponta a ponta não somente na área de acesso da interface de gerenciamento, mas também no módulo de aquisição de dados. ficando a critério do cliente a sua utilização ou não, já que podem ser incrementados um pequeno atraso de tempo e recursos na sua utilização, perceptíveis em processos que necessitem de curtos intervalos de tempo para funcionamento.  Em ambos os módulos, gerenciamento e aquisição de dados, é utilizado o protocolo \gls{HTTPS} visto na seção \ref{sec:https}, que utiliza certificados fornecidos por autoridades de certificação, como exemplo a empresa \textit{VeriSign} entre outras que são autorizados previamente nos navegadores, tendo a certeza de uma conexão segura e autêntica é implementada a criptografia \gls{TLS} entre servidor e cliente e a requisição é concluída similarmente ao que seria no protocolo \gls{HTTP} comum, o mesmo acontece para o protocolo \gls{MQTT} quando necessária sua utilização.
+        Por se tratar de dados críticos e de potencial interesse comercial do cliente, optou-se pela implementação de criptografia ponta a ponta não somente na área de acesso da interface de gerenciamento, mas também no módulo de aquisição de dados, ficando a critério do cliente a sua utilização ou não, já que podem ser incrementados um pequeno atraso de tempo e recursos na sua utilização, perceptíveis em processos que necessitem de curtos intervalos de tempo para funcionamento.  Em ambos os módulos, gerenciamento e aquisição de dados, é utilizado o protocolo \gls{HTTPS} visto na Seção \ref{sec:https}, que utiliza certificados fornecidos por autoridades de certificação, como exemplo a empresa \textit{VeriSign} entre outras que são autorizados previamente nos navegadores, tendo a certeza de uma conexão segura e autêntica é implementada a criptografia \gls{TLS} entre servidor e cliente e a requisição é concluída similarmente ao que seria no protocolo \gls{HTTP} comum, o mesmo acontece para o protocolo \gls{MQTT} quando necessária sua utilização.
         
         \subsection{Proteções}
         \label{sec:protecoes}
@@ -185,7 +185,7 @@ O módulo mais importante para o funcionamento deste sistema é a aquisição de
 
         \subsection{Controle de Acesso}
         \label{sec:controle-acesso}
-        Os acessos à interface são feitos através de usuário e senha armazenados em banco de dados e criptografados previamente, de forma que toda ação feita dentro da plataforma é provida de auditoria, faz-se um registro com informações sobre data e hora, local de onde foi feito o acesso, entre outros. Neste caso, também são implementados níveis de acesso à interface de gerenciamento, podendo serem diferenciados utilizadores para um mesmo projeto dentro da plataforma. O módulo de aquisição de dados trabalha exclusivamente com autenticação por \textit{token}, gerado no momento em que é feita inclusão de um cliente em um projeto, mais detalhes sobre como este \textit{token} é gerado e fornecido pela interface serão dados adiante.
+        Os acessos à interface são feitos através de usuário e senha armazenados em banco de dados e criptografados previamente, de forma que toda ação feita dentro da plataforma é provida de auditoria, faz-se um registro com informações sobre data e hora, local de onde foi feito o acesso, entre outros. Neste caso, também são implementados níveis de acesso à interface de gerenciamento, podendo ser diferenciados os utilizadores para um mesmo projeto dentro da plataforma. O módulo de aquisição de dados trabalha exclusivamente com autenticação por \textit{token}, gerado no momento em que é feita inclusão de um cliente em um projeto, mais detalhes sobre como este \textit{token} é gerado e fornecido pela interface serão dados adiante.
         
 \section{Recursos Computacionais}
 \label{sec:recursos-computacionais }
@@ -196,4 +196,4 @@ O módulo mais importante para o funcionamento deste sistema é a aquisição de
 \section{Síntese}
 \label{sec:sintese-sistema}
 
-Neste Capítulo, foram introduzidos todos os aspectos gerais necessários para o desenvolvimento do sistema proposto. Tendo sido descritas todas as funcionalidades necessárias, o sistema foi devidamente desenvolvido e o capítulo seguinte traz o capturas de tela e instruções de uso em um passo-a-passo sobre o sistema real em funcionamento.
+Neste Capítulo, foram introduzidos todos os aspectos gerais necessários para o desenvolvimento do sistema proposto. Tendo sido descritas todas as funcionalidades necessárias, o sistema foi devidamente desenvolvido e o capítulo seguinte traz as capturas de tela e instruções de uso em um passo-a-passo sobre o sistema real em funcionamento.
